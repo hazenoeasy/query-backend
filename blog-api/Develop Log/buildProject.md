@@ -1,0 +1,87 @@
+#Init Project
+This project used maven to manage dependencies.  
+`Blog-Backend` is the father project  
+`blog-api` is the current developing project  
+`Blog-Backend/pom.xml` is the father pom.xml
+```xml
+<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.1</version>
+		<relativePath/> 
+		<!-- lookup parent from repository -->
+</parent>
+```
+## Main Dependencies
+spring-boot-starter-log4j2:   need to exclusive `spring-boot-starter-logging` https://github.com/apache/logging-log4j2    
+spring-boot-starter-aop  
+spring-boot-starter-mail  
+spring-boot-starter-web: tomcat server  
+spring-boot-starter-data-redis  
+spring-boot-starter-test  
+commons-lang3: until  
+commons-collections: extension of collections
+mybatis-plus-boot-starter 
+joda-time: 
+fastjson
+spring-boot-devtools
+spring-boot-configuration-processor
+spring-boot-starter-test
+# Init Database
+used db.mysql to init Database
+# Properties
+set application.properties
+```properties
+# server port
+server.port= 
+
+# database
+spring.application.name=blog
+spring.datasource.url=
+spring.datasource.driver-class-name=
+spring.datasource.password=
+spring.datasource.username=
+
+# mybatis-plus
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus.global-config.db-config.table-prefix=ms_
+```
+set config.MybatisPlusConfig
+```java
+@Configuration
+@MapperScan("plus.yuhaozhang.blog.dao.mapper")
+public class MybatisPlusConfig {
+
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor(){
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        return interceptor;
+    }
+}
+```
+set config.WebMvcConfig
+```java
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    /**
+     *
+     * @param registry  allow cross site
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedOrigins("http://localhost:8080");
+    }
+}
+```
+# entry point
+the entry point has to be located at the top packge of the project.
+```java
+@SpringBootApplication
+public class BlogApp {
+    public static void main(String[] args) {
+        SpringApplication.run(BlogApp.class,args);
+    }
+}
+```
