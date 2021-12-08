@@ -1,10 +1,7 @@
 package plus.yuhaozhang.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import plus.yuhaozhang.blog.vo.ArticleVo;
 import plus.yuhaozhang.blog.vo.PageParams;
 import plus.yuhaozhang.blog.vo.Result;
@@ -30,5 +27,13 @@ public class ArticleController {
     @PostMapping
     public Result listArticle(@RequestBody PageParams pageParams){
         return Result.success(articleService.listArticle(pageParams));
+    }
+    @GetMapping("hot")
+    public Result getHotArticles(){
+        return Result.success(articleService.getHotArticles());
+    }
+    @GetMapping("new")
+    public Result getNewArticles(){
+        return Result.success(articleService.getNewArticles());
     }
 }

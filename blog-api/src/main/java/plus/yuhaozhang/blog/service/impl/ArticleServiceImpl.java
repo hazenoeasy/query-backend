@@ -13,10 +13,7 @@ import plus.yuhaozhang.blog.dao.pojo.SysUser;
 import plus.yuhaozhang.blog.service.struct.ArticleService;
 import plus.yuhaozhang.blog.service.struct.SysUserService;
 import plus.yuhaozhang.blog.service.struct.TagService;
-import plus.yuhaozhang.blog.vo.ArticleVo;
-import plus.yuhaozhang.blog.vo.PageParams;
-import plus.yuhaozhang.blog.vo.Result;
-import plus.yuhaozhang.blog.vo.TagVo;
+import plus.yuhaozhang.blog.vo.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -29,6 +26,7 @@ import java.util.List;
 @Service
 public class ArticleServiceImpl implements ArticleService {
     private static final String UNKNOW_USER = "unknownUser";
+    private static final Integer HOT_ARTICLES = 10;
     @Resource
     private ArticleMapper articleMapper;
     @Resource
@@ -51,7 +49,17 @@ public class ArticleServiceImpl implements ArticleService {
         List<ArticleVo>  articleVos = copyList(records,true,true);
         return articleVos;
     }
-    private List<ArticleVo> copyList(List<Article> records,boolean isTag, boolean isAuthor){
+
+    @Override
+    public List<HotArticleVo> getHotArticles() {
+        return articleMapper.getHotArticles(10);
+    }
+    @Override
+    public List<HotArticleVo> getNewArticles() {
+        return articleMapper.getNewArticles(10);
+    }
+
+    private List<ArticleVo> copyList(List<Article> records, boolean isTag, boolean isAuthor){
       List<ArticleVo> vos= new ArrayList<>();
       for(Article e: records){
           vos.add(copy(e,isTag,isAuthor));

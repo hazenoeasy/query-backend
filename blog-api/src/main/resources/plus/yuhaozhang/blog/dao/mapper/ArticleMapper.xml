@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="plus.yuhaozhang.blog.dao.mapper.ArticleMapper">
+
+    <select id="getHotArticles" resultType="plus.yuhaozhang.blog.vo.HotArticleVo">
+        select id, title from ms_article  order by view_counts desc limit #{size}
+    </select>
+    <select id="getNewArticles" resultType="plus.yuhaozhang.blog.vo.HotArticleVo">
+        select id, title from ms_article  order by create_date desc limit #{size}
+    </select>
+</mapper>
