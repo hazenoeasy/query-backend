@@ -30,9 +30,10 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public Result getHotTags(int size) {
-
-        return Result.success(null);
+    public List<Tag> getHotTags(int size) {
+        List<Long> tags = tagMapper.getHotTagsId(size);
+        List<Tag> result = tagMapper.getTagsNameById(tags);
+        return result;
     }
 
     private List<TagVo> copylist(List<Tag> tags){

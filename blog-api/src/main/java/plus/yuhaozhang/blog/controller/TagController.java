@@ -25,6 +25,8 @@ public class TagController {
 
     @GetMapping("hot")
     public Result getHotTags(){
-        return tagService.getHotTags(HOT_NUMBER);
+        List<Tag> tags = tagService.getHotTags(HOT_NUMBER);
+       return Result.success(tags);
     }
+
 }

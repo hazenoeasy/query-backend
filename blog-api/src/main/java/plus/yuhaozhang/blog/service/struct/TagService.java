@@ -1,5 +1,6 @@
 package plus.yuhaozhang.blog.service.struct;
 
+import plus.yuhaozhang.blog.dao.pojo.Tag;
 import plus.yuhaozhang.blog.vo.Result;
 import plus.yuhaozhang.blog.vo.TagVo;
 
@@ -11,5 +12,5 @@ import java.util.List;
  */
 public interface TagService {
     List<TagVo> findTagsByArticleId(Long articleId);
-    public Result getHotTags(int size);
+    List<Tag> getHotTags(int size);
 }
