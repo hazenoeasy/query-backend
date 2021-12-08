@@ -5,9 +5,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import plus.yuhaozhang.blog.vo.ArticleVo;
 import plus.yuhaozhang.blog.vo.PageParams;
 import plus.yuhaozhang.blog.vo.Result;
 import plus.yuhaozhang.blog.service.struct.ArticleService;
+
+import java.util.List;
 
 /**
  * @author Yuh Z
@@ -26,8 +29,6 @@ public class ArticleController {
      */
     @PostMapping
     public Result listArticle(@RequestBody PageParams pageParams){
-        System.out.println("xxxx");
-        System.out.println(pageParams);
-        return articleService.listArticle(pageParams);
+        return Result.success(articleService.listArticle(pageParams));
     }
 }

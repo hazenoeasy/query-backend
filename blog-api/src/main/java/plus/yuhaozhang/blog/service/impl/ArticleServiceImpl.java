@@ -42,14 +42,14 @@ public class ArticleServiceImpl implements ArticleService {
      * @return
      */
     @Override
-    public Result listArticle(PageParams pageParams){
+    public List<ArticleVo> listArticle(PageParams pageParams){
         Page<Article> page = new Page<>(pageParams.getPage(),pageParams.getPageSize());
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.orderByDesc(Article::getWeight).orderByDesc(Article::getCreateDate);
         Page<Article> articlePage = articleMapper.selectPage(page,queryWrapper);
         List<Article> records = articlePage.getRecords();
         List<ArticleVo>  articleVos = copyList(records,true,true);
-        return Result.success(articleVos);
+        return articleVos;
     }
     private List<ArticleVo> copyList(List<Article> records,boolean isTag, boolean isAuthor){
       List<ArticleVo> vos= new ArrayList<>();
