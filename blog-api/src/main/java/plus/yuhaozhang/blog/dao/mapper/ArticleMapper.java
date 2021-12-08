@@ -6,5 +6,6 @@ import plus.yuhaozhang.blog.dao.pojo.Article;
  * @author Yuh Z
  * @date 12/7/21
  */
+
 public interface ArticleMapper extends BaseMapper<Article> {
 }

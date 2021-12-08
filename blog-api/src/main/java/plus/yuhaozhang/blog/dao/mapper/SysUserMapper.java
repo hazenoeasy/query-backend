@@ -8,4 +8,5 @@ import plus.yuhaozhang.blog.dao.pojo.SysUser;
  * @date 12/7/21
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
+    SysUser findUserById(Long id);
 }
