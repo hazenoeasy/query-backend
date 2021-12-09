@@ -18,7 +18,7 @@ import plus.yuhaozhang.blog.service.struct.SysUserService;
 import plus.yuhaozhang.blog.vo.Result;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("users")
 public class UserController {
     @Autowired
     private LoginService loginService;
