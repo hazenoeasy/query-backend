@@ -1,4 +1,4 @@
-package plus.yuhaozhang.blog.vo;
+package plus.yuhaozhang.blog.vo.params;
 
 import lombok.Data;
 

@@ -1,12 +1,9 @@
 package plus.yuhaozhang.blog.service.struct;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import plus.yuhaozhang.blog.dao.dos.Archives;
 import plus.yuhaozhang.blog.vo.ArticleVo;
 import plus.yuhaozhang.blog.vo.HotArticleVo;
-import plus.yuhaozhang.blog.vo.PageParams;
-import plus.yuhaozhang.blog.vo.Result;
+import plus.yuhaozhang.blog.vo.params.PageParams;
 
 import java.util.List;
 

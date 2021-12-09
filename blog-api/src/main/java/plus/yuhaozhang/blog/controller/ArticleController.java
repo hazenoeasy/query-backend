@@ -2,12 +2,9 @@ package plus.yuhaozhang.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import plus.yuhaozhang.blog.vo.ArticleVo;
-import plus.yuhaozhang.blog.vo.PageParams;
+import plus.yuhaozhang.blog.vo.params.PageParams;
 import plus.yuhaozhang.blog.vo.Result;
 import plus.yuhaozhang.blog.service.struct.ArticleService;
-
-import java.util.List;
 
 /**
  * @author Yuh Z
