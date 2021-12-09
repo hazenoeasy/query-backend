@@ -7,8 +7,9 @@ package plus.yuhaozhang.blog.handler;
 
 public enum ExceptionEnum implements ExceptionEnumInterface {
     //  参数错误
-    INVALID_PARAMS(300,"参数不正确");
-
+    INVALID_PARAMS(300,"Params wrong"),
+    INVALID_TOKEN(401,"Invalid Token"),
+    INVALID_USER(401,"Login Fail");
     private final Integer code;
     private final String message;
 

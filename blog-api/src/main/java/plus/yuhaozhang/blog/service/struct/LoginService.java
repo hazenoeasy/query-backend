@@ -1,5 +1,6 @@
 package plus.yuhaozhang.blog.service.struct;
 
+import plus.yuhaozhang.blog.dao.pojo.SysUser;
 import plus.yuhaozhang.blog.vo.params.LoginParams;
 
 /**
@@ -9,5 +10,5 @@ import plus.yuhaozhang.blog.vo.params.LoginParams;
 
 public interface LoginService {
     String login(LoginParams loginParams);
-
+    SysUser findUserByToken(String token);
 }

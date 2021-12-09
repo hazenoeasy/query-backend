@@ -9,9 +9,10 @@ import plus.yuhaozhang.blog.dao.pojo.SysUser;
 public interface SysUserService {
     /**
      * get username from table SysUser by user id
-     * @param id user id
+     * @param  account and password
      * @return username
      */
-     SysUser findUserById(Long id);
+    SysUser verifyUser(String account, String password);
+    SysUser findUserById(Long id);
 
 }
