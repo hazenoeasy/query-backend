@@ -9,4 +9,10 @@
     <select id="getNewArticles" resultType="plus.yuhaozhang.blog.vo.HotArticleVo">
         select id, title from ms_article  order by create_date desc limit #{size}
     </select>
+    <select id="getListArchives" resultType="plus.yuhaozhang.blog.dao.dos.Archives">
+        select YEAR(FROM_UNIXTIME(create_date/1000,'%Y%m%d')) as year,
+               MONTH(FROM_UNIXTIME(create_date/1000,'%Y%m%d')) as month,
+               COUNT(*) as count from ms_article
+        group by year,month
+    </select>
 </mapper>

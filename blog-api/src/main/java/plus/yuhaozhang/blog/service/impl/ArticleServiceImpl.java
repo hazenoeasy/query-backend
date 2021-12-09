@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import plus.yuhaozhang.blog.dao.dos.Archives;
 import plus.yuhaozhang.blog.dao.mapper.ArticleMapper;
 import plus.yuhaozhang.blog.dao.mapper.TagMapper;
 import plus.yuhaozhang.blog.dao.pojo.Article;
@@ -54,9 +55,15 @@ public class ArticleServiceImpl implements ArticleService {
     public List<HotArticleVo> getHotArticles() {
         return articleMapper.getHotArticles(10);
     }
+
     @Override
     public List<HotArticleVo> getNewArticles() {
         return articleMapper.getNewArticles(10);
+    }
+
+    @Override
+    public List<Archives> getListArchives() {
+        return articleMapper.getListArchives();
     }
 
     private List<ArticleVo> copyList(List<Article> records, boolean isTag, boolean isAuthor){

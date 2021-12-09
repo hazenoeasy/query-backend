@@ -28,12 +28,19 @@ public class ArticleController {
     public Result listArticle(@RequestBody PageParams pageParams){
         return Result.success(articleService.listArticle(pageParams));
     }
+
     @GetMapping("hot")
     public Result getHotArticles(){
         return Result.success(articleService.getHotArticles());
     }
+
     @GetMapping("new")
     public Result getNewArticles(){
         return Result.success(articleService.getNewArticles());
+    }
+
+    @GetMapping("listArchives")
+    public Result getListArchives(){
+        return Result.success(articleService.getListArchives());
     }
 }
