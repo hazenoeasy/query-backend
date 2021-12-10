@@ -1,5 +1,7 @@
 package plus.yuhaozhang.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import plus.yuhaozhang.blog.dao.mapper.SysUserMapper;
@@ -25,6 +27,12 @@ public class SysUserServiceImpl implements SysUserService {
 
         return sysUserMapper.selectById(id);
     }
+
+    @Override
+    public SysUser findUserByAccount(String account) {
+        return sysUserMapper.selectByAccount(account);
+    }
+
 
     @Override
     public SysUser verifyUser(String account, String password) {

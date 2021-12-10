@@ -9,6 +9,7 @@ public enum ExceptionEnum implements ExceptionEnumInterface {
     //  参数错误
     INVALID_PARAMS(300,"Params wrong"),
     INVALID_TOKEN(401,"Invalid Token"),
+    INVALID_ACCOUNT(401,"Invalid account"),
     INVALID_USER(401,"Login Fail");
     private final Integer code;
     private final String message;

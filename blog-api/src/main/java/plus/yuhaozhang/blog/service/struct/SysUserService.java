@@ -14,5 +14,5 @@ public interface SysUserService {
      */
     SysUser verifyUser(String account, String password);
     SysUser findUserById(Long id);
-
+    SysUser findUserByAccount(String account);
 }

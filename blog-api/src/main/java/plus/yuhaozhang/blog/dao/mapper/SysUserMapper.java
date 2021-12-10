@@ -9,4 +9,6 @@ import plus.yuhaozhang.blog.dao.pojo.SysUser;
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
     SysUser verifyUser(String account, String hash);
+    SysUser selectByAccount(String account);
+
 }

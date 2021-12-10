@@ -2,9 +2,11 @@
 <!--MyBatis配置文件-->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="plus.yuhaozhang.blog.dao.mapper.SysUserMapper">
-
     <!--SysUser verifyUser(String account, String hash);-->
     <select id="verifyUser" resultType="plus.yuhaozhang.blog.dao.pojo.SysUser">
         select account,admin,avatar,nickname from ms_sys_user where account = #{param1} and password = #{param2}
+    </select>
+    <select id="selectByAccount" resultType="plus.yuhaozhang.blog.dao.pojo.SysUser">
+        select id from ms_sys_user where  account = #{account}
     </select>
 </mapper>
