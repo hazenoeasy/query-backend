@@ -1,4 +1,4 @@
-package plus.yuhaozhang.blog.handler;
+package plus.yuhaozhang.blog.handler.exception;
 
 /**
  * @author Yuh Z

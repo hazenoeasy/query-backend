@@ -1,4 +1,4 @@
-package plus.yuhaozhang.blog.handler;
+package plus.yuhaozhang.blog.handler.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

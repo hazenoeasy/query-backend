@@ -4,11 +4,11 @@ import lombok.Data;
 
 /**
  * @author Yuh Z
- * @date 12/8/21
+ * @date 12/12/21
  */
 @Data
-public class HotArticleVo {
+public class CategoryVo {
     private Long id;
-
-    private String title;
+    private String avatar;
+    private String categoryName;
 }

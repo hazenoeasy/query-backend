@@ -11,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import plus.yuhaozhang.blog.dao.pojo.SysUser;
-import plus.yuhaozhang.blog.handler.CaughtException;
-import plus.yuhaozhang.blog.handler.ExceptionEnum;
+import plus.yuhaozhang.blog.handler.exception.CaughtException;
+import plus.yuhaozhang.blog.handler.exception.ExceptionEnum;
 import plus.yuhaozhang.blog.service.struct.LoginService;
-import plus.yuhaozhang.blog.service.struct.SysUserService;
 import plus.yuhaozhang.blog.vo.Result;
 
 @RestController

@@ -1,6 +1,5 @@
-package plus.yuhaozhang.blog.handler;
+package plus.yuhaozhang.blog.handler.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**

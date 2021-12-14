@@ -40,4 +40,10 @@ public class ArticleController {
     public Result getListArchives(){
         return Result.success(articleService.getListArchives());
     }
+
+    @GetMapping("view/{id}")
+    public Result findArticleById(@PathVariable("id") Long articleId){
+        return Result.success(articleService.findArticleById(articleId));
+    }
+
 }

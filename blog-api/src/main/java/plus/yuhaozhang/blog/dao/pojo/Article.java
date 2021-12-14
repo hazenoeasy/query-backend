@@ -8,9 +8,9 @@ import lombok.Data;
  */
 @Data
 public class Article {
-    public static final Integer ARTICLE_TOP = 1;
+    //public static final Integer ARTICLE_TOP = 1;
 
-    public static final Integer ARTICLE_COMMON = 0;
+    //public static final Integer ARTICLE_COMMON = 0;
 
     private Long id;
 
@@ -18,9 +18,9 @@ public class Article {
 
     private String summary;
 
-    private int commentCounts;
+    private Integer commentCounts;
 
-    private int viewCounts;
+    private Integer viewCounts;
 
     private Long authorId;
 
@@ -28,7 +28,7 @@ public class Article {
 
     private Long categoryId;
 
-    private Integer weight = ARTICLE_COMMON;
+    private Integer weight;
 
     private Long createDate;
 

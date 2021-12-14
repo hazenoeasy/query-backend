@@ -2,6 +2,7 @@ package plus.yuhaozhang.blog.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import plus.yuhaozhang.blog.dao.pojo.SysUser;
+import plus.yuhaozhang.blog.vo.SysUserVo;
 
 /**
  * @author Yuh Z

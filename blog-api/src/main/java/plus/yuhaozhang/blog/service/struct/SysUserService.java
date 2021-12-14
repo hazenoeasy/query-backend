@@ -1,6 +1,7 @@
 package plus.yuhaozhang.blog.service.struct;
 
 import plus.yuhaozhang.blog.dao.pojo.SysUser;
+import plus.yuhaozhang.blog.vo.SysUserVo;
 
 /**
  * @author Yuh Z
@@ -15,4 +16,5 @@ public interface SysUserService {
     SysUser verifyUser(String account, String password);
     SysUser findUserById(Long id);
     SysUser findUserByAccount(String account);
+    SysUserVo findUserVoById(Long id);
 }

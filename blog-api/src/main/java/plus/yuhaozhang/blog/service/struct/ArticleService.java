@@ -24,4 +24,6 @@ public interface ArticleService {
     public List<HotArticleVo> getNewArticles();
 
     public List<Archives> getListArchives();
+
+    public ArticleVo findArticleById(Long articleId);
 }

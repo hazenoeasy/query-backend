@@ -6,19 +6,17 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import plus.yuhaozhang.blog.constant.Constant;
 import plus.yuhaozhang.blog.dao.mapper.SysUserMapper;
 import plus.yuhaozhang.blog.dao.pojo.SysUser;
-import plus.yuhaozhang.blog.handler.CaughtException;
-import plus.yuhaozhang.blog.handler.ExceptionEnum;
+import plus.yuhaozhang.blog.handler.exception.CaughtException;
+import plus.yuhaozhang.blog.handler.exception.ExceptionEnum;
 import plus.yuhaozhang.blog.service.struct.LoginService;
 import plus.yuhaozhang.blog.service.struct.SysUserService;
 import plus.yuhaozhang.blog.utils.JWTUtils;
 import plus.yuhaozhang.blog.vo.params.LoginParams;
 
 import javax.annotation.Resource;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**

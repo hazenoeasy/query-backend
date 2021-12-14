@@ -1,15 +1,11 @@
 package plus.yuhaozhang.blog.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import plus.yuhaozhang.blog.dao.mapper.SysUserMapper;
 import plus.yuhaozhang.blog.dao.pojo.SysUser;
-import plus.yuhaozhang.blog.handler.CaughtException;
-import plus.yuhaozhang.blog.handler.ExceptionEnum;
-import plus.yuhaozhang.blog.service.struct.LoginService;
 import plus.yuhaozhang.blog.service.struct.SysUserService;
+import plus.yuhaozhang.blog.vo.SysUserVo;
 
 import javax.annotation.Resource;
 
@@ -31,6 +27,17 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public SysUser findUserByAccount(String account) {
         return sysUserMapper.selectByAccount(account);
+    }
+
+    @Override
+    public SysUserVo findUserVoById(Long id) {
+        SysUser author = findUserById(id);
+        if(author == null) {
+            return null;
+        }
+        SysUserVo authorVo = new SysUserVo();
+        BeanUtils.copyProperties(author,authorVo);
+        return authorVo;
     }
 
 

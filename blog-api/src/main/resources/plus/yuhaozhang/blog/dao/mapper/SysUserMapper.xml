@@ -7,6 +7,6 @@
         select account,admin,avatar,nickname from ms_sys_user where account = #{param1} and password = #{param2}
     </select>
     <select id="selectByAccount" resultType="plus.yuhaozhang.blog.dao.pojo.SysUser">
-        select id from ms_sys_user where  account = #{account}
+        select * from ms_sys_user where  account = #{account}
     </select>
 </mapper>
