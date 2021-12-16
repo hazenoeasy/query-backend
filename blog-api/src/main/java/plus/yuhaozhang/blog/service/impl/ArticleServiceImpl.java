@@ -1,6 +1,6 @@
 package plus.yuhaozhang.blog.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
@@ -58,6 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Resource
     private ArticleBodyMapper articleBodyMapper;
+
     /**
      * 分页查询数据库
      *
@@ -67,15 +68,32 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<ArticleVo> listArticle(PageParams pageParams) {
         Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
-        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.orderByDesc(Article::getWeight).orderByDesc(Article::getCreateDate);
-        Page<Article> articlePage = articleMapper.selectPage(page, queryWrapper);
-        List<Article> records = articlePage.getRecords();
-        if (records.size() == 0) {
-            throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
-        }
-        return copyList(records, true, true, false, false);
+        IPage<Article> articleList = articleMapper.getArticleList(page, pageParams.getCategoryId(), pageParams.getTagId(),
+                pageParams.getYear(), pageParams.getMonth());
+        List<Article> records = articleList.getRecords();
+        return copyList(records,true,true,false,false);
     }
+    //@Override
+    //public List<ArticleVo> listArticle(PageParams pageParams) {
+    //    Page<Article> page = new Page<>(pageParams.getPage(), pageParams.getPageSize());
+    //    LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
+    //    if(pageParams.getCategoryId()!=null){
+    //        queryWrapper.eq(Article::getCategoryId,pageParams.getCategoryId());
+    //    }
+    //    if(pageParams.getTagId()!=null){
+    //        List<ArticleTag> articleTags = articleTagMapper.selectList(new LambdaQueryWrapper<ArticleTag>().eq(ArticleTag::getId, pageParams.getTagId()));
+    //        List<Long> articleIds = articleTags.stream().map(e->e.getArticleId()).collect(Collectors.toList());
+    //        queryWrapper.in(Article::getId,articleIds);
+    //    }
+    //    queryWrapper.orderByDesc(Article::getWeight).orderByDesc(Article::getCreateDate);
+    //    Page<Article> articlePage = articleMapper.selectPage(page, queryWrapper);
+    //    List<Article> records = articlePage.getRecords();
+    //    if (records.size() == 0) {
+    //        //throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
+    //        return null;
+    //    }
+    //    return copyList(records, true, true, false, false);
+    //}
 
     @Override
     public List<HotArticleVo> getHotArticles() {

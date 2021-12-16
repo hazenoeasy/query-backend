@@ -1,5 +1,6 @@
 package plus.yuhaozhang.blog.service.struct;
 
+import plus.yuhaozhang.blog.dao.pojo.Article;
 import plus.yuhaozhang.blog.dao.pojo.Tag;
 import plus.yuhaozhang.blog.vo.Result;
 import plus.yuhaozhang.blog.vo.TagVo;
@@ -15,4 +16,5 @@ public interface TagService {
     List<Tag> getHotTags(int size);
     List<TagVo> getTagList();
     List<Tag> getTagDetail();
+    Tag getTagById(Long id);
 }

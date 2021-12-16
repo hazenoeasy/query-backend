@@ -5,6 +5,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import plus.yuhaozhang.blog.dao.mapper.TagMapper;
+import plus.yuhaozhang.blog.dao.pojo.Article;
 import plus.yuhaozhang.blog.dao.pojo.Tag;
 import plus.yuhaozhang.blog.service.struct.TagService;
 import plus.yuhaozhang.blog.vo.Result;
@@ -47,6 +48,11 @@ public class TagServiceImpl implements TagService {
     public List<Tag> getTagDetail() {
         List<Tag> tags = tagMapper.selectList(new LambdaQueryWrapper<Tag>());
         return tags;
+    }
+
+    @Override
+    public Tag getTagById(Long id) {
+        return tagMapper.selectById(id);
     }
 
     private List<TagVo> copylist(List<Tag> tags){

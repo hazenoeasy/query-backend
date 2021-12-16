@@ -10,9 +10,24 @@
         select id, title from ms_article  order by create_date desc limit #{size}
     </select>
     <select id="getListArchives" resultType="plus.yuhaozhang.blog.dao.dos.Archives">
-        select YEAR(FROM_UNIXTIME(create_date/1000,'%Y%m%d')) as year,
-               MONTH(FROM_UNIXTIME(create_date/1000,'%Y%m%d')) as month,
+        select FROM_UNIXTIME(create_date/1000,'%Y') as year,
+               FROM_UNIXTIME(create_date/1000,'%m') as month,
                COUNT(*) as count from ms_article
         group by year,month
+    </select>
+    <select id="getArticleList" resultType="plus.yuhaozhang.blog.dao.pojo.Article">
+        select * from ms_article
+        <where>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+            <if test="tagId != null">
+                and id in (select article_id from ms_article_tag where tag_id= #{tagId})
+            </if>
+            <if test="year!=null and year.length()>0 and month!=null and month.length()>0">
+                and  FROM_UNIXTIME(create_date/1000,'%Y') =#{year} and FROM_UNIXTIME(create_date/1000,'%m') =#{month}
+            </if>
+        </where>
+        order by weight,create_date desc
     </select>
 </mapper>

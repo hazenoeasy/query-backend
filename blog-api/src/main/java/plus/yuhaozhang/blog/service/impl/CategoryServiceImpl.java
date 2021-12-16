@@ -41,6 +41,11 @@ public class CategoryServiceImpl implements CategoryService {
         return  categoryMapper.selectList(new LambdaQueryWrapper<Category>());
     }
 
+    @Override
+    public Category getCategoryDetailById(Long id) {
+        return categoryMapper.selectById(id);
+    }
+
     public List<CategoryVo> copyCategory(List<Category> categories){
         List<CategoryVo> categoryVos = new ArrayList<>();
         for(Category category:categories){

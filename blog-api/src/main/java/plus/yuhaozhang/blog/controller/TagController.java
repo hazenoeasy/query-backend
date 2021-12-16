@@ -1,11 +1,9 @@
 package plus.yuhaozhang.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import plus.yuhaozhang.blog.dao.mapper.TagMapper;
+import plus.yuhaozhang.blog.dao.pojo.Article;
 import plus.yuhaozhang.blog.dao.pojo.Tag;
 import plus.yuhaozhang.blog.service.struct.TagService;
 import plus.yuhaozhang.blog.vo.Result;
@@ -39,5 +37,9 @@ public class TagController {
         List<Tag> tags = tagService.getTagDetail();
         return Result.success(tags);
     }
-
+    @GetMapping("detail/{id}")
+    public Result getTagById(@PathVariable("id") Long id){
+        Tag tagById = tagService.getTagById(id);
+        return Result.success(tagById);
+    }
 }
