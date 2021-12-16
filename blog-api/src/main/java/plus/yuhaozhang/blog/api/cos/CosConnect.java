@@ -28,7 +28,6 @@ public class CosConnect {
         // 1 初始化用户身份信息（secretId, secretKey）。
 
         COSCredentials cred = new BasicCOSCredentials(Constant.secretId, Constant.secretKey);
-        // 2 设置 bucket 的地域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
         Region region = new Region(Constant.region);
         ClientConfig clientConfig = new ClientConfig(region);
         clientConfig.setHttpProtocol(HttpProtocol.https);

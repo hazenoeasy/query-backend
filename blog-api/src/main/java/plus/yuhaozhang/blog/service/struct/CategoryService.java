@@ -13,4 +13,5 @@ public interface CategoryService {
     public CategoryVo findCategoryById(Long id);
     List<CategoryVo> getCategoryList();
     List<Category> getCategoryDetails();
+    Category getCategoryDetailById(Long id);
 }

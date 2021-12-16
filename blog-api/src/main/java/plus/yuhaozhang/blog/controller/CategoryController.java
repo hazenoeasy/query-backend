@@ -1,6 +1,7 @@
 package plus.yuhaozhang.blog.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import plus.yuhaozhang.blog.dao.pojo.Category;
@@ -31,5 +32,10 @@ public class CategoryController {
     public Result getCategoryDetails(){
         List<Category> categoryList = categoryService.getCategoryDetails();
         return Result.success(categoryList);
+    }
+    @GetMapping("detail/{id}")
+    public Result getCategoryDetailById(@PathVariable("id") Long id){
+        Category category = categoryService.getCategoryDetailById(id);
+        return Result.success(category);
     }
 }
