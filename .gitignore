@@ -1,10 +1,10 @@
+blog-api/src/main/java/plus/yuhaozhang/blog/constant/Constant.java
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-!**/src/main/java/plus/yuhaozhang/blog/constant/Constant.java
 .apt_generated
 .classpath
 .factorypath
@@ -36,4 +36,3 @@ build/
 application.properties
 global.properties
 
-Constant.java
