@@ -9,6 +9,7 @@ import plus.yuhaozhang.blog.dao.mapper.TagMapper;
 import plus.yuhaozhang.blog.dao.pojo.Tag;
 import plus.yuhaozhang.blog.service.struct.TagService;
 import plus.yuhaozhang.blog.vo.Result;
+import plus.yuhaozhang.blog.vo.TagVo;
 
 import java.util.List;
 
@@ -27,6 +28,16 @@ public class TagController {
     public Result getHotTags(){
         List<Tag> tags = tagService.getHotTags(HOT_NUMBER);
        return Result.success(tags);
+    }
+    @GetMapping
+    public Result getTagList(){
+        List<TagVo> tags = tagService.getTagList();
+        return Result.success(tags);
+    }
+    @GetMapping("detail")
+    public Result getTagDetails(){
+        List<Tag> tags = tagService.getTagDetail();
+        return Result.success(tags);
     }
 
 }

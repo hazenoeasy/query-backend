@@ -1,5 +1,6 @@
 package plus.yuhaozhang.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import plus.yuhaozhang.blog.dao.mapper.CategoryMapper;
@@ -8,6 +9,8 @@ import plus.yuhaozhang.blog.service.struct.CategoryService;
 import plus.yuhaozhang.blog.vo.CategoryVo;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Yuh Z
@@ -24,5 +27,27 @@ public class CategoryServiceImpl implements CategoryService {
         CategoryVo categoryVo = new CategoryVo();
         BeanUtils.copyProperties(categoryMapper.selectById(id),categoryVo);
         return categoryVo;
+    }
+
+    @Override
+    public List<CategoryVo> getCategoryList() {
+        LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        List<Category> categories = categoryMapper.selectList(lambdaQueryWrapper);
+        return copyCategory(categories);
+    }
+
+    @Override
+    public List<Category> getCategoryDetails() {
+        return  categoryMapper.selectList(new LambdaQueryWrapper<Category>());
+    }
+
+    public List<CategoryVo> copyCategory(List<Category> categories){
+        List<CategoryVo> categoryVos = new ArrayList<>();
+        for(Category category:categories){
+            CategoryVo categoryVo = new CategoryVo();
+            BeanUtils.copyProperties(category,categoryVo);
+            categoryVos.add(categoryVo);
+        }
+        return categoryVos;
     }
 }

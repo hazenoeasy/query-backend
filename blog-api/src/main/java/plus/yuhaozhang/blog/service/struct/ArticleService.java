@@ -3,6 +3,7 @@ package plus.yuhaozhang.blog.service.struct;
 import plus.yuhaozhang.blog.dao.dos.Archives;
 import plus.yuhaozhang.blog.vo.ArticleVo;
 import plus.yuhaozhang.blog.vo.HotArticleVo;
+import plus.yuhaozhang.blog.vo.params.ArticleParam;
 import plus.yuhaozhang.blog.vo.params.PageParams;
 
 import java.util.List;
@@ -26,4 +27,6 @@ public interface ArticleService {
     public List<Archives> getListArchives();
 
     public ArticleVo findArticleById(Long articleId);
+
+    public Long publishArticle(ArticleParam articleParam);
 }

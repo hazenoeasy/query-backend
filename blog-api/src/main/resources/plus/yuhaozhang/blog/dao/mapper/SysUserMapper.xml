@@ -4,7 +4,7 @@
 <mapper namespace="plus.yuhaozhang.blog.dao.mapper.SysUserMapper">
     <!--SysUser verifyUser(String account, String hash);-->
     <select id="verifyUser" resultType="plus.yuhaozhang.blog.dao.pojo.SysUser">
-        select account,admin,avatar,nickname from ms_sys_user where account = #{param1} and password = #{param2}
+        select id,account,admin,avatar,nickname from ms_sys_user where account = #{param1} and password = #{param2}
     </select>
     <select id="selectByAccount" resultType="plus.yuhaozhang.blog.dao.pojo.SysUser">
         select * from ms_sys_user where  account = #{account}

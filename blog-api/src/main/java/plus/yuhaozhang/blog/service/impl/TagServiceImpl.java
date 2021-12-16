@@ -1,5 +1,6 @@
 package plus.yuhaozhang.blog.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,18 @@ public class TagServiceImpl implements TagService {
         List<Long> tags = tagMapper.getHotTagsId(size);
         List<Tag> result = tagMapper.getTagsNameById(tags);
         return result;
+    }
+
+    @Override
+    public List<TagVo> getTagList() {
+        List<Tag> tags = tagMapper.selectList(new LambdaQueryWrapper<Tag>());
+        return copylist(tags);
+    }
+
+    @Override
+    public List<Tag> getTagDetail() {
+        List<Tag> tags = tagMapper.selectList(new LambdaQueryWrapper<Tag>());
+        return tags;
     }
 
     private List<TagVo> copylist(List<Tag> tags){

@@ -9,6 +9,6 @@ import java.util.List;
  * @date 12/10/21
  */
 public class WhiteList {
-    public static String[] whiteArray = {"/login"};
+    public static String[] BlackList = {"/comments/create/change","/articles/publish"};
     //public static List<String> whiteList= new ArrayList<String>(Arrays.asList(whiteArray));
 }

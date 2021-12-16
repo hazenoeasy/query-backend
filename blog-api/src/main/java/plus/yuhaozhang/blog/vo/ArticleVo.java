@@ -23,7 +23,7 @@ public class ArticleVo {
     private String author;
     private ArticleBodyVo body;
     private List<TagVo> tags;
-    //private List<CategoryVo> categoryVolist;
     private CategoryVo category;
+    private Integer commentsNumber;
 
 }

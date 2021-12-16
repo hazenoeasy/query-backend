@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 src/main/resources/application.properties
+src/main/java/plus/yuhaozhang/blog/constant/Constant.java
 ### STS ###
 .apt_generated
 .classpath

@@ -1,7 +1,10 @@
 package plus.yuhaozhang.blog.controller;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import plus.yuhaozhang.blog.vo.params.ArticleParam;
 import plus.yuhaozhang.blog.vo.params.PageParams;
 import plus.yuhaozhang.blog.vo.Result;
 import plus.yuhaozhang.blog.service.struct.ArticleService;
@@ -44,6 +47,12 @@ public class ArticleController {
     @GetMapping("view/{id}")
     public Result findArticleById(@PathVariable("id") Long articleId){
         return Result.success(articleService.findArticleById(articleId));
+    }
+    @PostMapping("publish")
+    public Result publishArticle(@RequestBody ArticleParam articleParam){
+        Long id = articleService.publishArticle(articleParam);
+        System.out.println(id);
+        return Result.success(id+"");
     }
 
 }

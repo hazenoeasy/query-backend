@@ -13,4 +13,6 @@ import java.util.List;
 public interface TagService {
     List<TagVo> findTagsByArticleId(Long articleId);
     List<Tag> getHotTags(int size);
+    List<TagVo> getTagList();
+    List<Tag> getTagDetail();
 }

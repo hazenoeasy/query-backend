@@ -1,6 +1,7 @@
 package plus.yuhaozhang.blog.service.struct;
 
 import plus.yuhaozhang.blog.vo.CommentVo;
+import plus.yuhaozhang.blog.vo.params.CommentParams;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ import java.util.List;
 public interface CommentService {
     public List<CommentVo> findCommentById(Long id);
     public List<CommentVo> findCommentById(Long id, int level);
+    public void publishComment(CommentParams commentParams);
 }

@@ -1,6 +1,7 @@
 package plus.yuhaozhang.blog.dao.pojo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Yuh Z
@@ -32,4 +33,9 @@ public class Article {
 
     private Long createDate;
 
+    //public Article() {
+    //    this.weight=0;
+    //    this.viewCounts=0;
+    //    this.commentCounts=0;
+    //}
 }
