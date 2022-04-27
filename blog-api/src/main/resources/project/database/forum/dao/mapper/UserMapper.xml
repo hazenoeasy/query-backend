@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.database.forum.dao.mapper.UserMapper">
+    <!--User verifyUser(String account, String hash);-->
+    <select id="verifyUser" resultType="project.database.forum.dao.pojo.User">
+        select uid,
+               username,
+               profile,
+               status,
+               email,
+               city,
+               state,
+               country
+        from user
+        where username = #{param1}
+          and password = #{param2}
+    </select>
+    <select id="selectByUsername" resultType="project.database.forum.dao.pojo.User">
+        select *
+        from user
+        where username = #{username}
+    </select>
+</mapper>
