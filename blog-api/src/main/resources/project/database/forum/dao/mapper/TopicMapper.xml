@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="project.database.forum.dao.mapper.TopicMapper">
+    <!--public List<Topic> getPopularTopic(Integer number);-->
+    <select id="getPopularTopic" resultType="project.database.forum.dao.pojo.Topic">
+        with recursive rec(tid, parentId) as (
+            select t1.tid, t1.parentId
+            from Topic t1
+            where t1.tid
+            union
+            select t2.tid, t3.parentId
+            from Topic t2,
+                 rec t3
+            where t2.parentId = t3.tid
+              and t2.parentId != t2.tid
+            )
+        select rec.parentId as tid, T.parentId as parentId, topic_name, text, count(*) as count
+        from rec left JOIN Topic T
+        on rec.parentId = T.tid
+        group by tid, parentId, topic_name, text
+        order by count desc
+            limit #{param1}
+    </select>
+</mapper>

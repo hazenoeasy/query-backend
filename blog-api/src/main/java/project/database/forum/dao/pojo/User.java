@@ -9,7 +9,7 @@ import lombok.Data;
  * @date 12/7/21
  */
 @Data
-@TableName("user")
+@TableName("User")
 public class User {
     @TableId
     private String uid;
