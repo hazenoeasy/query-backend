@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import project.database.forum.dao.pojo.Question;
 import project.database.forum.service.struct.QuestionService;
 import project.database.forum.vo.Result;
+import project.database.forum.vo.params.QuestionListParams;
 
 import java.util.List;
 
@@ -20,9 +21,16 @@ import java.util.List;
 public class QuestionController {
     @Autowired
     private QuestionService questionService;
+
     @GetMapping("popular")
-    public Result PopularQuestion(@RequestParam("number") Integer number) {
+    public Result PopularQuestion(@RequestParam("number") Long number) {
         List<Question> list = questionService.getPopularQuestion(number);
+        return Result.success(list);
+    }
+
+    @GetMapping("list")
+    public Result getQuestionList(QuestionListParams questionListParams) {
+        List<Question> list = questionService.getQuestionList(questionListParams);
         return Result.success(list);
     }
 }

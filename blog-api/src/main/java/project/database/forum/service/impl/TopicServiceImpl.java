@@ -21,4 +21,14 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getPopularTopic(Integer number) {
         return topicMapper.getPopularTopic(number);
     }
+
+    @Override
+    public List<Topic> getRootTopic() {
+        return topicMapper.getRootTopic();
+    }
+
+    @Override
+    public List<Topic> getChildTopic(Integer parentId) {
+        return topicMapper.getChildTopic(parentId);
+    }
 }

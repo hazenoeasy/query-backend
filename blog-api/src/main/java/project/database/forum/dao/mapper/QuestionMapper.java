@@ -1,9 +1,9 @@
 package project.database.forum.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 import project.database.forum.dao.pojo.Question;
-import project.database.forum.dao.pojo.User;
 
 import java.util.List;
 
@@ -13,5 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface QuestionMapper extends BaseMapper<Question> {
-    List<Question> getPopularQuestion(Integer number);
+    List<Question> getPopularQuestion(Long number);
+
+    List<Question> getQuestionList(Page<Question> questions, Long tid);
 }

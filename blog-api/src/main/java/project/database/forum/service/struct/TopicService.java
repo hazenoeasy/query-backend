@@ -11,4 +11,8 @@ import java.util.List;
  */
 public interface TopicService {
     List<Topic> getPopularTopic(Integer number);
+
+    List<Topic> getRootTopic();
+
+    List<Topic> getChildTopic(Integer parentId);
 }

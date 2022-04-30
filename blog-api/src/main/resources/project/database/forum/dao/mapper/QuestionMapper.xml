@@ -4,10 +4,24 @@
 <mapper namespace="project.database.forum.dao.mapper.QuestionMapper">
     <!--List<Question> getPopularQuestion(Integer number);-->
     <select id="getPopularQuestion" resultType="project.database.forum.dao.pojo.Question">
-        select Q.qid, Q.uid, Q.title, Q.body, Q.resolved, Q.datetime, Q.tid, count(Q.qid) as count
-        from question Q left join Answer A on Q.qid = A.qid
+        select Q.qid,
+               Q.uid,
+               Q.title,
+               Q.body,
+               Q.resolved,
+               Q.datetime,
+               Q.tid,
+               count(Q.qid) as count
+        from question Q left join Answer A
+        on Q.qid = A.qid
         group by Q.qid, Q.uid, Q.title, Q.body, Q.resolved, Q.datetime, Q.tid
         order by count desc
-        limit #{param1}
+            limit #{param1}
+    </select>
+    <!--List<Question> getQuestionList(Page<Question> questions, Long tid);-->
+    <select id="getQuestionList" resultType="project.database.forum.dao.pojo.Question">
+        select *
+        from Question
+        where tid = #{tid}
     </select>
 </mapper>

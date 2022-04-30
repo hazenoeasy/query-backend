@@ -22,4 +22,17 @@
         order by count desc
             limit #{param1}
     </select>
+    <!--List<Topic> getRootTopic();-->
+    <select id="getRootTopic" resultType="project.database.forum.dao.pojo.Topic">
+        select *
+        from topic
+        where tid = parentId
+    </select>
+    <select id="getChildTopic" resultType="project.database.forum.dao.pojo.Topic">
+        select *
+        from topic
+        where parentId = #{param1}
+          and tid != parentId
+    </select>
+
 </mapper>

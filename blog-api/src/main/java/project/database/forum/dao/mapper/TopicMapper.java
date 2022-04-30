@@ -17,5 +17,18 @@ public interface TopicMapper extends BaseMapper<Topic> {
      * @param number
      * @return
      */
-    public List<Topic> getPopularTopic(Integer number);
+    List<Topic> getPopularTopic(Integer number);
+
+    /**
+     * get root level topic list
+     * @return
+     */
+    List<Topic> getRootTopic();
+
+    /**
+     * get children topics under parentId
+     * @param parentId
+     * @return
+     */
+    List<Topic> getChildTopic(Integer parentId);
 }

@@ -1,6 +1,7 @@
 package project.database.forum.service.struct;
 
 import project.database.forum.dao.pojo.Question;
+import project.database.forum.vo.params.QuestionListParams;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface QuestionService {
      * @param number
      * @return list of popular questions
      */
-    List<Question> getPopularQuestion(Integer number);
+    List<Question> getPopularQuestion(Long number);
+
+    List<Question> getQuestionList(QuestionListParams questionListParams);
 }
