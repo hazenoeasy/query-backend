@@ -1,7 +1,6 @@
 package project.database.forum.dao.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,11 +12,15 @@ import java.util.Date;
 @Data
 @TableName("Question")
 public class Question {
-    @TableId
+    @TableId(type = IdType.ASSIGN_ID)
     private String qid;
     private String uid;
+    private String tid;
     private String title;
     private String body;
-    private Boolean resolved;
+
+    private Integer resolved = 0;
+
+    @TableField(fill = FieldFill.INSERT)
     private Date datetime;
 }
