@@ -37,8 +37,14 @@ public class TopicController {
     }
 
     @GetMapping("childTopic")
-    public Result getChildTopic(@RequestParam("parentId") Integer parentId){
+    public Result getChildTopic(@RequestParam("parentId") String parentId){
         List<Topic> list = topicService.getChildTopic(parentId);
         return Result.success(list);
+    }
+
+    @GetMapping("detail")
+    public Result getTopicById(@RequestParam("tid") String tid) {
+        Topic topic = topicService.getById(tid);
+        return Result.success(topic);
     }
 }

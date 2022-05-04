@@ -30,5 +30,7 @@ public interface TopicMapper extends BaseMapper<Topic> {
      * @param parentId
      * @return
      */
-    List<Topic> getChildTopic(Integer parentId);
+    List<Topic> getChildTopic(String parentId);
+
+
 }
