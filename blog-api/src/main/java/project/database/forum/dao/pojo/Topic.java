@@ -16,6 +16,7 @@ public class Topic {
     private String tid;
     @TableField(value = "parentId")
     private String parentId;
+    @TableField(value = "topic_name")
     private String topicName;
     private String text;
 }

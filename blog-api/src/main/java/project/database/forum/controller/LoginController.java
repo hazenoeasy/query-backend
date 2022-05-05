@@ -12,12 +12,13 @@ import project.database.forum.vo.params.LoginParams;
  */
 @RestController
 @RequestMapping("login")
+@CrossOrigin("http://localhost")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
-    @PostMapping
+    @PostMapping()
     public Result login(@RequestBody LoginParams loginParams){
         return Result.success(loginService.login(loginParams));
 

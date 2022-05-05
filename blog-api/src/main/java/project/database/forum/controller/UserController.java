@@ -40,6 +40,5 @@ public class UserController {
     public Result userList() {
         List<User> userList = userService.getUserList();
         return Result.success(userList);
-
     }
 }
