@@ -26,6 +26,8 @@ public class User {
 
     private String city;
 
-    private String status;
+    private Integer status;
+
+    private String profile;
 
 }

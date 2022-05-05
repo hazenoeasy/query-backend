@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.params.LoginParams;
+import project.database.forum.vo.params.RegisterParams;
 
 /**
  * @author Yuh Z
@@ -20,8 +21,8 @@ public class RegisterController {
     private LoginService loginService;
 
     @PostMapping
-    public Result register(@RequestBody LoginParams loginParams){
-        loginService.register(loginParams);
+    public Result register(@RequestBody RegisterParams registerParams){
+        loginService.register(registerParams);
         return Result.success(null);
     }
 }

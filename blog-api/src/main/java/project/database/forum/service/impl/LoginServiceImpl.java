@@ -1,6 +1,7 @@
 package project.database.forum.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import project.database.forum.service.struct.LoginService;
 import project.database.forum.service.struct.UserService;
 import project.database.forum.utils.JWTUtils;
 import project.database.forum.vo.params.LoginParams;
+import project.database.forum.vo.params.RegisterParams;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
@@ -85,20 +87,24 @@ public class LoginServiceImpl implements LoginService {
     /**
      * if exist account  throw Invalid_name
      *
-     * @param loginParams
+     * @param registerParams
      * @return
      */
     @Override
-    public void register(LoginParams loginParams) {
-        if (loginParams.getUsername() == null || loginParams.getPassword() == null) {
+    public void register(RegisterParams registerParams) {
+        if (registerParams.getUsername() == null || registerParams.getPassword() == null) {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
-        if (userService.findUserByUsername(loginParams.getUsername()) != null) {
-            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
+        if (userService.findUserByUsername(registerParams.getUsername()) != null) {
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT,"this username has been used");
         }
+        if (userService.getOne(new QueryWrapper<User>().eq("email",registerParams.getEmail()))!=null) {
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT,"this email has been used");
+        }
+
         User user = new User();
-        user.setPassword(DigestUtils.md5Hex(loginParams.getPassword() + salt));
-        user.setUsername(loginParams.getUsername());
+        user.setPassword(DigestUtils.md5Hex(registerParams.getPassword() + salt));
+        user.setUsername(registerParams.getUsername());
         UserMapper.insert(user);
     }
 
