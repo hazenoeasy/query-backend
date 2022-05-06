@@ -6,16 +6,14 @@ package project.database.forum.controller;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.handler.exception.CaughtException;
 import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.service.struct.UserService;
 import project.database.forum.vo.Result;
+import project.database.forum.vo.UserVO;
 
 import java.util.List;
 
@@ -40,5 +38,11 @@ public class UserController {
     public Result userList() {
         List<User> userList = userService.getUserList();
         return Result.success(userList);
+    }
+
+    @GetMapping("one")
+    public Result getUserById(@RequestParam String uid){
+        UserVO userVO = userService.getUserById(uid);
+        return Result.success(userVO);
     }
 }

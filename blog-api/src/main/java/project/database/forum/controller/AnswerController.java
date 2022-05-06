@@ -2,6 +2,7 @@ package project.database.forum.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import project.database.forum.dao.pojo.Answer;
 import project.database.forum.dao.pojo.User;
@@ -9,6 +10,8 @@ import project.database.forum.service.struct.AnswerService;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddAnswerParams;
+import project.database.forum.vo.params.BestAnswerParams;
+import project.database.forum.vo.params.LikeAnswerParams;
 
 import java.util.List;
 
@@ -40,4 +43,19 @@ public class AnswerController {
         return Result.success(aid);
     }
 
+    @PostMapping("like")
+    public Result likeAnswer(@RequestBody LikeAnswerParams likeAnswerParams,
+                            @RequestHeader("Authorization") String token){
+        User user = loginService.findUserByToken(token);
+        answerService.likeAnswer(likeAnswerParams,user);
+        return Result.success(true);
+    }
+
+    @PostMapping("best")
+    public Result bestAnswer(@RequestBody BestAnswerParams bestAnswerParams,
+                             @RequestHeader("Authorization") String token){
+        User user = loginService.findUserByToken(token);
+        answerService.bestAnswer(bestAnswerParams,user);
+        return Result.success(true);
+    }
 }

@@ -1,10 +1,12 @@
 package project.database.forum.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import project.database.forum.dao.mapper.UserMapper;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.service.struct.UserService;
+import project.database.forum.vo.UserVO;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -34,5 +36,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     @Override
     public List<User> getUserList() {
         return userMapper.selectList(null);
+    }
+
+    @Override
+    public UserVO getUserById(String uid) {
+        User user = this.getOne(new QueryWrapper<User>().eq("uid", uid));
+        UserVO userVO = new UserVO();
+        userVO.setUsername(user.getUsername());
+        userVO.setUid(user.getUid());
+        return userVO;
     }
 }

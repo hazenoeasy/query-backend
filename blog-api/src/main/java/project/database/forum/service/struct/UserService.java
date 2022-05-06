@@ -2,6 +2,7 @@ package project.database.forum.service.struct;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import project.database.forum.dao.pojo.User;
+import project.database.forum.vo.UserVO;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface UserService extends IService<User> {
     User findUserByUsername(String username);
 
     List<User> getUserList();
+
+    UserVO getUserById(String uid);
 }

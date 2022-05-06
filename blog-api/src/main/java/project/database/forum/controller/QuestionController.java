@@ -6,9 +6,12 @@ import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.service.struct.QuestionService;
+import project.database.forum.service.struct.UserService;
 import project.database.forum.vo.Result;
+import project.database.forum.vo.UserVO;
 import project.database.forum.vo.params.AddQuestionParams;
 import project.database.forum.vo.params.QuestionListParams;
+import project.database.forum.vo.params.QuestionVO;
 
 import java.util.List;
 
@@ -25,6 +28,8 @@ public class QuestionController {
     @Autowired
     private LoginService loginService;
 
+    @Autowired
+    private UserService userService;
     @GetMapping("popular")
     public Result PopularQuestion(@RequestParam("number") Long number) {
         List<Question> list = questionService.getPopularQuestion(number);
@@ -47,7 +52,22 @@ public class QuestionController {
 
     @GetMapping("detail")
     public Result getQuestionById(@RequestParam String qid) {
-        Question question = questionService.getById(qid);
+        QuestionVO question = questionService.getQuestionById(qid);
+        UserVO user = userService.getUserById(question.getUid());
+        question.setUsername(user.getUsername());
         return Result.success(question);
+    }
+
+    @PutMapping("resolve")
+    public Result resolveQuestion(@RequestParam String qid, @RequestHeader("Authorization") String token){
+        User user = loginService.findUserByToken(token);
+        questionService.resolveQuestion(qid,user);
+        return Result.success(true);
+    }
+    @DeleteMapping("cancelResolve")
+    public Result cancelResolveQuestion(@RequestParam String qid, @RequestHeader("Authorization") String token){
+        User user = loginService.findUserByToken(token);
+        questionService.cancelResolveQuestion(qid,user);
+        return Result.success(true);
     }
 }

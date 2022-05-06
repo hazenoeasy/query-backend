@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 import project.database.forum.dao.mapper.QuestionMapper;
 import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
+import project.database.forum.handler.exception.CaughtException;
+import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.QuestionService;
+import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddQuestionParams;
+import project.database.forum.vo.params.QuestionVO;
 import project.database.forum.vo.params.QuestionListParams;
 
 import java.util.List;
@@ -24,7 +28,8 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
 
     @Override
     public List<Question> getPopularQuestion(Long number) {
-        return questionMapper.getPopularQuestion(number);
+        List<Question> popularQuestion = questionMapper.getPopularQuestion(number);
+        return popularQuestion;
     }
 
     @Override
@@ -42,5 +47,50 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         question.setUid(user.getUid());
         boolean save = super.save(question);
         return question.getQid();
+    }
+
+    @Override
+    public QuestionVO getQuestionById(String qid) {
+        Question question = this.getById(qid);
+        QuestionVO questionVO = new QuestionVO();
+        questionVO.setBody(question.getBody());
+        questionVO.setTitle(question.getTitle());
+        questionVO.setTid(question.getTid());
+        questionVO.setUid(question.getUid());
+        questionVO.setDatetime(question.getDatetime());
+        questionVO.setQid(question.getQid());
+        questionVO.setResolved(question.getResolved());
+        return questionVO;
+    }
+
+    /**
+     * step 1
+     * @param qid
+     * @param user
+     */
+    @Override
+    public void resolveQuestion(String qid, User user) {
+        Question question = this.getById(qid);
+        if(question==null) {
+            throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
+        }
+        if(question.getUid()!=user.getUid()){
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
+        }
+        question.setResolved(true);
+        this.updateById(question);
+    }
+
+    @Override
+    public void cancelResolveQuestion(String qid, User user) {
+        Question question = this.getById(qid);
+        if(question==null) {
+            throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
+        }
+        if(question.getUid()!=user.getUid()){
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
+        }
+        question.setResolved(false);
+        this.updateById(question);
     }
 }

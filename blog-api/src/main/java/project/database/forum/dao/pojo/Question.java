@@ -18,9 +18,7 @@ public class Question {
     private String tid;
     private String title;
     private String body;
-
-    private Integer resolved = 0;
-
+    private Boolean resolved = false;
     @TableField(fill = FieldFill.INSERT)
     private Date datetime;
 }

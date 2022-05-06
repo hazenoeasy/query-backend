@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.vo.params.AddQuestionParams;
+import project.database.forum.vo.params.QuestionVO;
 import project.database.forum.vo.params.QuestionListParams;
 
 import java.util.List;
@@ -23,4 +24,9 @@ public interface QuestionService extends IService<Question> {
     List<Question> getQuestionList(QuestionListParams questionListParams);
 
     String addQuestion(AddQuestionParams addQuestionParams, User user);
+    QuestionVO getQuestionById(String qid);
+
+    void resolveQuestion(String qid, User user);
+
+    void cancelResolveQuestion(String qid, User user);
 }
