@@ -18,7 +18,7 @@ public class Answer {
     private String qid;
     private String uid;
     private String text;
-    private Integer likes;
-    private Boolean best;
+    private Integer likes = 0;
+    private Boolean best =false;
     private Date datetime;
 }

@@ -10,7 +10,8 @@ public enum ExceptionEnum implements ExceptionEnumInterface {
     INVALID_PARAMS(300,"Params wrong"),
     INVALID_TOKEN(401,"Invalid Token"),
     INVALID_ACCOUNT(401,"Invalid account"),
-    INVALID_USER(401,"Login Fail");
+    INVALID_USER(401,"Login Fail"),
+    SYSTEM_FAIL(500,"System Fail");
     private final Integer code;
     private final String message;
 
