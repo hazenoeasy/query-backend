@@ -38,7 +38,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         Question question = new Question();
         question.setBody(addQuestionParams.getBody());
         question.setTitle(addQuestionParams.getTitle());
-        question.setTid(addQuestionParams.getTopicId());
+        question.setTid(addQuestionParams.getTid());
         question.setUid(user.getUid());
         boolean save = super.save(question);
         return question.getQid();

@@ -14,17 +14,13 @@ import java.util.List;
  */
 @Data
 public class CascaderTopic {
-    private String tid;
-    private String parentId;
-    private String topicName;
-    private String text;
+    private String value;
+    private String label;
     private List<CascaderTopic> children;
 
     public CascaderTopic(Topic topic) {
-        this.tid = topic.getTid();
-        this.parentId = topic.getParentId();
-        this.topicName = topic.getTopicName();
-        this.text = topic.getText();
+        this.value = topic.getTid();
+        this.label = topic.getTopicName();
         this.children = new ArrayList<>();
     }
 }

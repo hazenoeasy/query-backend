@@ -77,6 +77,7 @@ public class LoginServiceImpl implements LoginService {
      */
     @Override
     public User findUserByToken(String token) {
+
         if (token == null) {
             return null;
         }

@@ -10,5 +10,5 @@ import lombok.Data;
 public class AddQuestionParams {
     private String title;
     private String body;
-    private String topicId;
+    private String tid;
 }
