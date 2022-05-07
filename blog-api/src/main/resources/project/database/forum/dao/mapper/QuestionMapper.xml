@@ -24,4 +24,10 @@
         from Question
         where tid = #{tid}
     </select>
+    <!--List<QuestionVO> getQuestionListByUid(String uid);-->
+    <select id="getQuestionListByUid" resultType="project.database.forum.vo.params.QuestionVO">
+        select *
+        from Question
+        where uid = #{uid}
+    </select>
 </mapper>

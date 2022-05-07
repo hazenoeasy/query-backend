@@ -17,8 +17,9 @@ import project.database.forum.vo.Result;
 public class LogoutController {
     @Autowired
     private LogoutService logoutService;
+
     @GetMapping
-    public Result logout(@RequestHeader("Authorization") String token){
+    public Result logout(@RequestHeader("Authorization") String token) {
         logoutService.logout(token);
         return Result.success("succeed!");
     }

@@ -25,6 +25,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     @GetMapping("currentUser")
     public Result currentUser(@RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
@@ -41,7 +42,7 @@ public class UserController {
     }
 
     @GetMapping("one")
-    public Result getUserById(@RequestParam String uid){
+    public Result getUserById(@RequestParam String uid) {
         UserVO userVO = userService.getUserById(uid);
         return Result.success(userVO);
     }

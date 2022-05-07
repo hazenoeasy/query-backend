@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor implements HandlerInterceptor {
     @Autowired
     private LoginService loginService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (!(handler instanceof HandlerMethod)) {
@@ -35,13 +36,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         log.info(request.getHeader("Authorization"));
         log.info("=================");
 
-        if(StringUtils.isBlank(request.getHeader("Authorization"))){
+        if (StringUtils.isBlank(request.getHeader("Authorization"))) {
             response.setContentType("application/json; charset=UTF-8");
             response.getWriter().print(JSON.toJSONString(Result.fail(ExceptionEnum.INVALID_TOKEN.getCode(), ExceptionEnum.INVALID_TOKEN.getDefaultMessage())));
             return false;
         }
-        User user =loginService.findUserByToken(request.getHeader("Authorization"));
-        if(user ==null){
+        User user = loginService.findUserByToken(request.getHeader("Authorization"));
+        if (user == null) {
             response.setContentType("application/json; charset=UTF-8");
             response.getWriter().print(JSON.toJSONString(Result.fail(ExceptionEnum.INVALID_TOKEN.getCode(), ExceptionEnum.INVALID_TOKEN.getDefaultMessage())));
             return false;

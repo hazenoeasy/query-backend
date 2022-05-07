@@ -19,7 +19,7 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping()
-    public Result login(@RequestBody LoginParams loginParams){
+    public Result login(@RequestBody LoginParams loginParams) {
         return Result.success(loginService.login(loginParams));
 
     }

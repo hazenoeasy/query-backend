@@ -1,13 +1,13 @@
 package project.database.forum.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import project.database.forum.dao.mapper.AnswerMapper;
 import project.database.forum.dao.pojo.Answer;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.service.struct.AnswerService;
 import project.database.forum.service.struct.LoginService;
+import project.database.forum.vo.AnswerQuestionVO;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddAnswerParams;
 import project.database.forum.vo.params.AnswerVO;
@@ -29,6 +29,7 @@ public class AnswerController {
 
     @Autowired
     private LoginService loginService;
+
     @GetMapping("list")
     public Result getAnswerList(@RequestParam String qid) {
         List<AnswerVO> list = answerService.getAnswerList(qid);
@@ -36,31 +37,30 @@ public class AnswerController {
     }
 
     @PostMapping("reply")
-    public Result addAnswer(@RequestBody AddAnswerParams addAnswerParams,@RequestHeader("Authorization") String token){
+    public Result addAnswer(@RequestBody AddAnswerParams addAnswerParams, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
-        String aid = answerService.addAnswer(addAnswerParams,user);
+        String aid = answerService.addAnswer(addAnswerParams, user);
         return Result.success(aid);
     }
 
     @PostMapping("like")
-    public Result likeAnswer(@RequestBody LikeAnswerParams likeAnswerParams,
-                            @RequestHeader("Authorization") String token){
+    public Result likeAnswer(@RequestBody LikeAnswerParams likeAnswerParams, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
-        answerService.likeAnswer(likeAnswerParams,user);
+        answerService.likeAnswer(likeAnswerParams, user);
         return Result.success(true);
     }
 
     @PostMapping("best")
-    public Result bestAnswer(@RequestBody BestAnswerParams bestAnswerParams,
-                             @RequestHeader("Authorization") String token){
+    public Result bestAnswer(@RequestBody BestAnswerParams bestAnswerParams, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
-        answerService.bestAnswer(bestAnswerParams,user);
+        answerService.bestAnswer(bestAnswerParams, user);
         return Result.success(true);
     }
 
-    //@GetMapping("user")
-    //public Result gerAnswerListByUid(@RequestHeader("Authorization") String token){
-    //    User user = loginService.findUserByToken(token);
-    //    List<> answerService.gerAnswerListByUid(user.getUid());
-    //}
+    @GetMapping("user")
+    public Result gerAnswerListByUid(String uid) {
+
+        List<AnswerQuestionVO> list = answerService.gerAnswerListByUid(uid);
+        return Result.success(list);
+    }
 }

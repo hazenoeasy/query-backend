@@ -5,8 +5,17 @@
     <!--AnswerVO answerList(String qid);-->
     <select id="answerList" resultType="project.database.forum.vo.params.AnswerVO">
         select A.*, U.username
-        from Answer A Left join  User U on A.uid = U.uid
+        from Answer A
+                 Left join User U on A.uid = U.uid
         where A.qid = #{qid}
-        order by likes desc,datetime desc
+        order by likes desc, datetime desc
+    </select>
+    <!--List<AnswerVO> getAnswerListByUid(String uid);-->
+    <select id="getAnswerListByUid" resultType="project.database.forum.vo.AnswerQuestionVO">
+        select A.*,Q.title
+        from Answer A
+                 Left join Question Q on A.qid = Q.qid
+        where A.uid = #{uid}
+        order by A.datetime desc
     </select>
 </mapper>

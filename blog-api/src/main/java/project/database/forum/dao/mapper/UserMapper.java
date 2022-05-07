@@ -11,6 +11,7 @@ import project.database.forum.dao.pojo.User;
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
     User verifyUser(String account, String hash);
+
     User selectByUsername(String username);
 
 }

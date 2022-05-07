@@ -22,10 +22,11 @@ import java.util.Map;
  * @date 4/30/22
  */
 @Service
-public class TopicServiceImpl  extends ServiceImpl<TopicMapper, Topic> implements TopicService {
+public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements TopicService {
 
     @Autowired
     private TopicMapper topicMapper;
+
     @Override
     public List<Topic> getPopularTopic(Integer number) {
         return topicMapper.getPopularTopic(number);
@@ -44,12 +45,11 @@ public class TopicServiceImpl  extends ServiceImpl<TopicMapper, Topic> implement
     @Override
     public String addNewTopic(AddTopicParams addTopicParams) {
         QueryWrapper<Topic> topicQueryWrapper = new QueryWrapper<>();
-        topicQueryWrapper.eq("topic_name",addTopicParams.getTopicName());
+        topicQueryWrapper.eq("topic_name", addTopicParams.getTopicName());
         Topic topic = this.getOne(topicQueryWrapper);
-        if(topic!=null){
-            throw new CaughtException(ExceptionEnum.INVALID_PARAMS,"this topic name has been used");
-        }
-        else{
+        if (topic != null) {
+            throw new CaughtException(ExceptionEnum.INVALID_PARAMS, "this topic name has been used");
+        } else {
             Topic topic1 = new Topic();
             topic1.setTopicName(addTopicParams.getTopicName());
             topic1.setText(addTopicParams.getText());
@@ -62,7 +62,7 @@ public class TopicServiceImpl  extends ServiceImpl<TopicMapper, Topic> implement
     @Override
     public List<CascaderTopic> getCascaderTopics() {
         List<Topic> list = this.list();
-        Map<String,CascaderTopic> mapper = new HashMap<>(50);
+        Map<String, CascaderTopic> mapper = new HashMap<>(50);
         List<CascaderTopic> result = new ArrayList<>();
         // build tid --> Topic mapper
         for (Topic topic : list) {

@@ -5,8 +5,8 @@ import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.vo.params.AddQuestionParams;
 import project.database.forum.vo.params.QuestionID;
-import project.database.forum.vo.params.QuestionVO;
 import project.database.forum.vo.params.QuestionListParams;
+import project.database.forum.vo.params.QuestionVO;
 
 import java.util.List;
 
@@ -16,7 +16,6 @@ import java.util.List;
  */
 public interface QuestionService extends IService<Question> {
     /**
-     *
      * @param number
      * @return list of popular questions
      */
@@ -25,9 +24,12 @@ public interface QuestionService extends IService<Question> {
     List<Question> getQuestionList(QuestionListParams questionListParams);
 
     String addQuestion(AddQuestionParams addQuestionParams, User user);
+
     QuestionVO getQuestionById(String qid);
 
     void resolveQuestion(QuestionID qid, User user);
 
     void cancelResolveQuestion(QuestionID qid, User user);
+
+    List<QuestionVO> getQuestionListByUid(String uid);
 }

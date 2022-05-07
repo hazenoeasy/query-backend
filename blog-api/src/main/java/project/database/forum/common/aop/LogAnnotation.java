@@ -11,5 +11,6 @@ import java.lang.annotation.*;
 @Documented
 public @interface LogAnnotation {
     String module() default "";
+
     String operator() default "";
 }

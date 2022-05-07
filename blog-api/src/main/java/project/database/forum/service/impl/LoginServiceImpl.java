@@ -66,7 +66,6 @@ public class LoginServiceImpl implements LoginService {
         redisTemplate.opsForValue().set("TOKEN_" + token, JSON.toJSONString(user), 1, TimeUnit.DAYS);
         return token;
     }
-
     /**
      * 1 token is null?
      * 2 token is parseable?
@@ -97,10 +96,10 @@ public class LoginServiceImpl implements LoginService {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
         if (userService.findUserByUsername(registerParams.getUsername()) != null) {
-            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT,"this username has been used");
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT, "this username has been used");
         }
-        if (userService.getOne(new QueryWrapper<User>().eq("email",registerParams.getEmail()))!=null) {
-            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT,"this email has been used");
+        if (userService.getOne(new QueryWrapper<User>().eq("email", registerParams.getEmail())) != null) {
+            throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT, "this email has been used");
         }
 
         User user = new User();

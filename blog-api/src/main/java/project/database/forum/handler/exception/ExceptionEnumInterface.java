@@ -6,5 +6,6 @@ package project.database.forum.handler.exception;
  */
 public interface ExceptionEnumInterface {
     Integer getCode();
+
     String getDefaultMessage();
 }

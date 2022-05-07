@@ -14,6 +14,7 @@ import java.util.List;
 public interface TopicMapper extends BaseMapper<Topic> {
     /**
      * select popular topic based on how many question under this topic
+     *
      * @param number
      * @return
      */
@@ -21,12 +22,14 @@ public interface TopicMapper extends BaseMapper<Topic> {
 
     /**
      * get root level topic list
+     *
      * @return
      */
     List<Topic> getRootTopic();
 
     /**
      * get children topics under parentId
+     *
      * @param parentId
      * @return
      */

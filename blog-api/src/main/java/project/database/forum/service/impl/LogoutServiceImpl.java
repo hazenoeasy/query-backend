@@ -14,8 +14,9 @@ public class LogoutServiceImpl implements LogoutService {
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+
     @Override
     public void logout(String token) {
-        redisTemplate.delete("TOKEN_"+token);
+        redisTemplate.delete("TOKEN_" + token);
     }
 }

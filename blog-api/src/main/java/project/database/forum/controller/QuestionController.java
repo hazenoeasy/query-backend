@@ -31,6 +31,7 @@ public class QuestionController {
 
     @Autowired
     private UserService userService;
+
     @GetMapping("popular")
     public Result PopularQuestion(@RequestParam("number") Long number) {
         List<Question> list = questionService.getPopularQuestion(number);
@@ -60,15 +61,22 @@ public class QuestionController {
     }
 
     @PostMapping("resolve")
-    public Result resolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token){
+    public Result resolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
-        questionService.resolveQuestion(qid,user);
+        questionService.resolveQuestion(qid, user);
         return Result.success(true);
     }
+
     @PostMapping("cancelResolve")
-    public Result cancelResolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token){
+    public Result cancelResolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
-        questionService.cancelResolveQuestion(qid,user);
+        questionService.cancelResolveQuestion(qid, user);
         return Result.success(true);
     }
+    @GetMapping("user")
+    public Result getQuestionListByUid(String uid){
+        List<QuestionVO> list = questionService.getQuestionListByUid(uid);
+        return Result.success(list);
+    }
+
 }

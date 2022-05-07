@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -22,7 +21,7 @@ public class Answer {
     private String uid;
     private String text;
     private Integer likes = 0;
-    private Boolean best =false;
+    private Boolean best = false;
     @TableField(fill = FieldFill.INSERT)
     private Date datetime;
 }

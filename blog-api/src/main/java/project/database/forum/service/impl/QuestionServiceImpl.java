@@ -10,11 +10,10 @@ import project.database.forum.dao.pojo.User;
 import project.database.forum.handler.exception.CaughtException;
 import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.QuestionService;
-import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddQuestionParams;
 import project.database.forum.vo.params.QuestionID;
-import project.database.forum.vo.params.QuestionVO;
 import project.database.forum.vo.params.QuestionListParams;
+import project.database.forum.vo.params.QuestionVO;
 
 import java.util.List;
 
@@ -67,16 +66,17 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
 
     /**
      * step 1
+     *
      * @param qid
      * @param user
      */
     @Override
     public void resolveQuestion(QuestionID qid, User user) {
         Question question = this.getById(qid.getQid());
-        if(question==null) {
+        if (question == null) {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
-        if(!question.getUid().equals(user.getUid())){
+        if (!question.getUid().equals(user.getUid())) {
             throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
         }
         question.setResolved(true);
@@ -86,13 +86,19 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     @Override
     public void cancelResolveQuestion(QuestionID qid, User user) {
         Question question = this.getById(qid.getQid());
-        if(question==null) {
+        if (question == null) {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
-        if(!question.getUid().equals(user.getUid())){
+        if (!question.getUid().equals(user.getUid())) {
             throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
         }
         question.setResolved(false);
         this.updateById(question);
+    }
+
+    @Override
+    public List<QuestionVO> getQuestionListByUid(String uid) {
+        List<QuestionVO> list = questionMapper.getQuestionListByUid(uid);
+        return list;
     }
 }

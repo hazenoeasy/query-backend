@@ -10,7 +10,7 @@ import java.util.Date;
  * @date 5/6/22
  */
 @Data
-public class AnswerVO{
+public class AnswerVO {
     private String username;
     private String aid;
     private String qid;
@@ -19,7 +19,8 @@ public class AnswerVO{
     private Integer likes;
     private Boolean best;
     private String datetime;
-    public void setDatetime(Date datetime){
+
+    public void setDatetime(Date datetime) {
         SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.datetime = sfd.format(datetime);
     }

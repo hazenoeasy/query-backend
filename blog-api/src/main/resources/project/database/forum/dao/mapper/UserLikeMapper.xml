@@ -4,6 +4,9 @@
 <mapper namespace="project.database.forum.dao.mapper.UserLikeMapper">
     <!--UserLike getUserLikeRecord(String aid, String uid);-->
     <select id="getUserLikeRecord" resultType="project.database.forum.dao.pojo.UserLike">
-       select * from UserLike where  aid = #{aid} and uid = #{uid}
+        select *
+        from UserLike
+        where aid = #{aid}
+          and uid = #{uid}
     </select>
 </mapper>

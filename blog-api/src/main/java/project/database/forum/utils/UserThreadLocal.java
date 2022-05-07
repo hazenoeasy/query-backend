@@ -12,14 +12,15 @@ public class UserThreadLocal {
 
     private static final ThreadLocal<User> THREAD_LOCAL = new ThreadLocal<>();
 
-    public static void put(User user){
+    public static void put(User user) {
         THREAD_LOCAL.set(user);
     }
 
-    public static User get(){
+    public static User get() {
         return THREAD_LOCAL.get();
     }
-    public static void delete(){
+
+    public static void delete() {
         THREAD_LOCAL.remove();
     }
 }

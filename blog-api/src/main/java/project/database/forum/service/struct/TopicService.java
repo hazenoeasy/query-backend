@@ -1,7 +1,6 @@
 package project.database.forum.service.struct;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.springframework.stereotype.Service;
 import project.database.forum.dao.pojo.Topic;
 import project.database.forum.vo.CascaderTopic;
 import project.database.forum.vo.params.AddTopicParams;

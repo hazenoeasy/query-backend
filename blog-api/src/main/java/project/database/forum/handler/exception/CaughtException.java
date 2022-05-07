@@ -7,7 +7,7 @@ import lombok.Data;
  * @date 12/9/21
  */
 @Data
-public class CaughtException extends RuntimeException{
+public class CaughtException extends RuntimeException {
     private ExceptionEnum exceptionInfo;
     private String customMessage;
 

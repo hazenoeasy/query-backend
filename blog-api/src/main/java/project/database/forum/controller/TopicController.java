@@ -1,11 +1,8 @@
 package project.database.forum.controller;
 
-import net.sf.jsqlparser.statement.select.Top;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.Topic;
-import project.database.forum.service.struct.QuestionService;
 import project.database.forum.service.struct.TopicService;
 import project.database.forum.vo.CascaderTopic;
 import project.database.forum.vo.Result;
@@ -36,7 +33,7 @@ public class TopicController {
     }
 
     @GetMapping("childTopic")
-    public Result getChildTopic(@RequestParam("parentId") String parentId){
+    public Result getChildTopic(@RequestParam("parentId") String parentId) {
         List<Topic> list = topicService.getChildTopic(parentId);
         return Result.success(list);
     }
@@ -48,12 +45,13 @@ public class TopicController {
     }
 
     @PostMapping("newTopic")
-    public Result addNewTopic(AddTopicParams addTopicParams){
+    public Result addNewTopic(AddTopicParams addTopicParams) {
         String tid = topicService.addNewTopic(addTopicParams);
         return Result.success(tid);
     }
+
     @GetMapping("cascader")
-    public Result getCascaderTopics(){
+    public Result getCascaderTopics() {
         List<CascaderTopic> list = topicService.getCascaderTopics();
         return Result.success(list);
     }

@@ -11,23 +11,23 @@ import lombok.Data;
 @Data
 @TableName("userview")
 public class UserView {
-        @TableId
-        private String uid;
+    @TableId
+    private String uid;
 
-        private String username;
+    private String username;
 
-        private String email;
+    private String email;
 
-        private String password;
+    private String password;
 
-        private String country;
+    private String country;
 
-        private String state;
+    private String state;
 
-        private String city;
+    private String city;
 
-        private String status;
+    private String status;
 
-        private String profile;
+    private String profile;
 
 }

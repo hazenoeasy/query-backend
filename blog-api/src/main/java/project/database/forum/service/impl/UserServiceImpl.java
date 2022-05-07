@@ -16,7 +16,7 @@ import java.util.List;
  * @date 12/7/21
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Resource
     private UserMapper userMapper;
 
