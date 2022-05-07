@@ -10,6 +10,7 @@ import project.database.forum.dao.pojo.User;
 import project.database.forum.handler.exception.CaughtException;
 import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.QuestionService;
+import project.database.forum.vo.QuestionWithRelevant;
 import project.database.forum.vo.params.AddQuestionParams;
 import project.database.forum.vo.params.QuestionID;
 import project.database.forum.vo.params.QuestionListParams;
@@ -99,6 +100,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     @Override
     public List<QuestionVO> getQuestionListByUid(String uid) {
         List<QuestionVO> list = questionMapper.getQuestionListByUid(uid);
+        return list;
+    }
+
+    @Override
+    public List<QuestionWithRelevant> searchQuestion(String keyword) {
+        List<QuestionWithRelevant> list = questionMapper.searchQuestion(keyword);
         return list;
     }
 }

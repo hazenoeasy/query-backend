@@ -7,6 +7,7 @@ import project.database.forum.dao.pojo.User;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.service.struct.QuestionService;
 import project.database.forum.service.struct.UserService;
+import project.database.forum.vo.QuestionWithRelevant;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.UserVO;
 import project.database.forum.vo.params.AddQuestionParams;
@@ -76,6 +77,20 @@ public class QuestionController {
     @GetMapping("user")
     public Result getQuestionListByUid(String uid){
         List<QuestionVO> list = questionService.getQuestionListByUid(uid);
+        return Result.success(list);
+    }
+
+    /**
+     * return a list of question with order by relevant.
+     * If the keywords match the title of the question, the weight is 3, otherwise is 0
+     * If the keywords match the body of the question, the weight is 2, otherwise is 0
+     * If the keywords match anyone's answer, the weight is 1. if there are multiple matches
+     * @param keyword
+     * @return
+     */
+    @GetMapping("search")
+    public Result searchQuestion(@RequestParam String keyword){
+        List<QuestionWithRelevant> list = questionService.searchQuestion(keyword);
         return Result.success(list);
     }
 

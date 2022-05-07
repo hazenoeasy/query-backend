@@ -137,4 +137,10 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         List<AnswerQuestionVO> list = answerMapper.getAnswerListByUid(uid);
         return list;
     }
+
+    @Override
+    public List<AnswerQuestionVO> searchAnswer(String keyword) {
+        List<AnswerQuestionVO> list = answerMapper.searchAnswer(keyword);
+        return list;
+    }
 }

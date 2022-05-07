@@ -58,9 +58,15 @@ public class AnswerController {
     }
 
     @GetMapping("user")
-    public Result gerAnswerListByUid(String uid) {
+    public Result gerAnswerListByUid(@RequestParam String uid) {
 
         List<AnswerQuestionVO> list = answerService.gerAnswerListByUid(uid);
+        return Result.success(list);
+    }
+
+    @GetMapping("search")
+    public Result searchAnswer(@RequestParam String keyword){
+        List<AnswerQuestionVO> list =answerService.searchAnswer(keyword);
         return Result.success(list);
     }
 }

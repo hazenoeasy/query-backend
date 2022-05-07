@@ -30,4 +30,17 @@
         from Question
         where uid = #{uid}
     </select>
+    <!--List<QuestionWithRelevant> searchQuestion(String keyword);-->
+    <select id="searchQuestion" resultType="project.database.forum.vo.QuestionWithRelevant">
+        <bind name="key" value="'%'+keyword+'%'"/>
+        with relevant(qid,relevant) as(SELECT qid,sum(weight) as relevant from(
+        select qid,3 as weight from Question where title like #{key}
+        UNION ALL
+        select qid,2 as weight from Question where body LIKE  #{key}
+        UNION All
+        select Q.qid,1 as weight from Question Q inner JOIN Answer A on Q.qid = A.qid where A.text LIKE  #{key}
+        ) as t1
+        GROUP BY qid)
+        select Q.*,R.relevant from relevant R left join Question Q on R.qid = Q.qid order by relevant desc;
+    </select>
 </mapper>

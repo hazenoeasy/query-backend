@@ -17,4 +17,6 @@ public interface AnswerMapper extends BaseMapper<Answer> {
     List<AnswerVO> answerList(String qid);
 
     List<AnswerQuestionVO> getAnswerListByUid(String uid);
+
+    List<AnswerQuestionVO> searchAnswer(String keyword);
 }

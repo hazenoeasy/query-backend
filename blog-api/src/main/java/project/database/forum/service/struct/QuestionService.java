@@ -3,6 +3,7 @@ package project.database.forum.service.struct;
 import com.baomidou.mybatisplus.extension.service.IService;
 import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
+import project.database.forum.vo.QuestionWithRelevant;
 import project.database.forum.vo.params.AddQuestionParams;
 import project.database.forum.vo.params.QuestionID;
 import project.database.forum.vo.params.QuestionListParams;
@@ -32,4 +33,6 @@ public interface QuestionService extends IService<Question> {
     void cancelResolveQuestion(QuestionID qid, User user);
 
     List<QuestionVO> getQuestionListByUid(String uid);
+
+    List<QuestionWithRelevant> searchQuestion(String keyword);
 }

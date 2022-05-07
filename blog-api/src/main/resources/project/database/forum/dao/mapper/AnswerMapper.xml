@@ -18,4 +18,13 @@
         where A.uid = #{uid}
         order by A.datetime desc
     </select>
+    <!--List<AnswerQuestionVO> searchAnswer(String keyword);-->
+    <select id="searchAnswer" resultType="project.database.forum.vo.AnswerQuestionVO">
+        <bind name="key" value="'%'+keyword+'%'"/>
+        select A.*,Q.title,U.username
+        from Answer A
+                 Left join Question Q on A.qid = Q.qid left join User U on A.uid = U.uid
+        where A.text LIKE #{key}
+        order by likes desc,datetime desc
+    </select>
 </mapper>

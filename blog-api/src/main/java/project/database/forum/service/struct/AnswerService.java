@@ -25,4 +25,6 @@ public interface AnswerService extends IService<Answer> {
     List<AnswerVO> getAnswerList(String qid);
 
     List<AnswerQuestionVO> gerAnswerListByUid(String uid);
+
+    List<AnswerQuestionVO> searchAnswer(String keyword);
 }

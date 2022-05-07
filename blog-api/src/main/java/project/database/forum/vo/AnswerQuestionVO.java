@@ -10,4 +10,5 @@ import project.database.forum.dao.pojo.Answer;
 @Data
 public class AnswerQuestionVO extends Answer {
     private String title;
+    private String username;
 }

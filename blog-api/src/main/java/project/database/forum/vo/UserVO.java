@@ -10,4 +10,5 @@ import lombok.Data;
 public class UserVO {
     private String uid;
     private String username;
+    private Integer status;
 }
