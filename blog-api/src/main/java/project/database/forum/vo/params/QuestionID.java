@@ -7,7 +7,6 @@ import lombok.Data;
  * @date 5/6/22
  */
 @Data
-public class LikeAnswerParams {
-    private String aid;
-    private Integer likes;
+public class QuestionID {
+    private String qid;
 }

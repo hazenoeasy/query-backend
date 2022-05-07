@@ -10,6 +10,7 @@ import project.database.forum.service.struct.UserService;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.UserVO;
 import project.database.forum.vo.params.AddQuestionParams;
+import project.database.forum.vo.params.QuestionID;
 import project.database.forum.vo.params.QuestionListParams;
 import project.database.forum.vo.params.QuestionVO;
 
@@ -58,14 +59,14 @@ public class QuestionController {
         return Result.success(question);
     }
 
-    @PutMapping("resolve")
-    public Result resolveQuestion(@RequestParam String qid, @RequestHeader("Authorization") String token){
+    @PostMapping("resolve")
+    public Result resolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token){
         User user = loginService.findUserByToken(token);
         questionService.resolveQuestion(qid,user);
         return Result.success(true);
     }
-    @DeleteMapping("cancelResolve")
-    public Result cancelResolveQuestion(@RequestParam String qid, @RequestHeader("Authorization") String token){
+    @PostMapping("cancelResolve")
+    public Result cancelResolveQuestion(@RequestBody QuestionID qid, @RequestHeader("Authorization") String token){
         User user = loginService.findUserByToken(token);
         questionService.cancelResolveQuestion(qid,user);
         return Result.success(true);

@@ -12,6 +12,7 @@ import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.QuestionService;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddQuestionParams;
+import project.database.forum.vo.params.QuestionID;
 import project.database.forum.vo.params.QuestionVO;
 import project.database.forum.vo.params.QuestionListParams;
 
@@ -60,6 +61,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         questionVO.setDatetime(question.getDatetime());
         questionVO.setQid(question.getQid());
         questionVO.setResolved(question.getResolved());
+        questionVO.setBest(question.getBest());
         return questionVO;
     }
 
@@ -69,12 +71,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
      * @param user
      */
     @Override
-    public void resolveQuestion(String qid, User user) {
-        Question question = this.getById(qid);
+    public void resolveQuestion(QuestionID qid, User user) {
+        Question question = this.getById(qid.getQid());
         if(question==null) {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
-        if(question.getUid()!=user.getUid()){
+        if(!question.getUid().equals(user.getUid())){
             throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
         }
         question.setResolved(true);
@@ -82,12 +84,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
     }
 
     @Override
-    public void cancelResolveQuestion(String qid, User user) {
-        Question question = this.getById(qid);
+    public void cancelResolveQuestion(QuestionID qid, User user) {
+        Question question = this.getById(qid.getQid());
         if(question==null) {
             throw new CaughtException(ExceptionEnum.INVALID_PARAMS);
         }
-        if(question.getUid()!=user.getUid()){
+        if(!question.getUid().equals(user.getUid())){
             throw new CaughtException(ExceptionEnum.INVALID_ACCOUNT);
         }
         question.setResolved(false);

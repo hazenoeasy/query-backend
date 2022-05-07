@@ -3,6 +3,9 @@ package project.database.forum.dao.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import project.database.forum.dao.pojo.Answer;
+import project.database.forum.vo.params.AnswerVO;
+
+import java.util.List;
 
 /**
  * @author Yuh Z
@@ -10,4 +13,5 @@ import project.database.forum.dao.pojo.Answer;
  */
 @Mapper
 public interface AnswerMapper extends BaseMapper<Answer> {
+    List<AnswerVO> answerList(String qid);
 }

@@ -19,6 +19,7 @@ public class Question {
     private String title;
     private String body;
     private Boolean resolved = false;
+    private String best;
     @TableField(fill = FieldFill.INSERT)
     private Date datetime;
 }

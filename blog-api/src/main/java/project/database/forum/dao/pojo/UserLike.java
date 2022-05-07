@@ -1,5 +1,6 @@
 package project.database.forum.dao.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -15,5 +16,5 @@ public class UserLike {
     private String rid;
     private String uid;
     private String aid;
-    private Integer like;
+    private Integer likes;
 }

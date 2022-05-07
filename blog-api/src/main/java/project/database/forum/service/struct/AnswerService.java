@@ -5,8 +5,11 @@ import project.database.forum.dao.pojo.Answer;
 import project.database.forum.dao.pojo.Question;
 import project.database.forum.dao.pojo.User;
 import project.database.forum.vo.params.AddAnswerParams;
+import project.database.forum.vo.params.AnswerVO;
 import project.database.forum.vo.params.BestAnswerParams;
 import project.database.forum.vo.params.LikeAnswerParams;
+
+import java.util.List;
 
 /**
  * @author Yuh Z
@@ -17,4 +20,5 @@ public interface AnswerService extends IService<Answer> {
     void likeAnswer(LikeAnswerParams likeAnswerParams, User user);
 
     void bestAnswer(BestAnswerParams bestAnswerParams, User user);
+    List<AnswerVO> getAnswerList(String qid);
 }

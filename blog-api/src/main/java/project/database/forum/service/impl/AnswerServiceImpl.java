@@ -17,8 +17,11 @@ import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.AnswerService;
 import project.database.forum.service.struct.QuestionService;
 import project.database.forum.vo.params.AddAnswerParams;
+import project.database.forum.vo.params.AnswerVO;
 import project.database.forum.vo.params.BestAnswerParams;
 import project.database.forum.vo.params.LikeAnswerParams;
+
+import java.util.List;
 
 /**
  * @author Yuh Z
@@ -30,6 +33,7 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
     private UserLikeMapper userLikeMapper;
     @Autowired
     private QuestionService questionService;
+    @Autowired AnswerMapper answerMapper;
     @Override
     public String addAnswer(AddAnswerParams addAnswerParams, User user) {
         Answer answer = new Answer();
@@ -55,22 +59,24 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void likeAnswer(LikeAnswerParams likeAnswerParams, User user){
+
         UserLike userLike =userLikeMapper.getUserLikeRecord(likeAnswerParams.getAid(),user.getUid());
 
         int diff =0;
         // step2
         if(userLike==null){
             UserLike userLike1 = new UserLike();
-            userLike1.setLike(likeAnswerParams.getLike());
+            userLike1.setLikes(likeAnswerParams.getLikes());
             userLike1.setUid(user.getUid());
             userLike1.setAid(likeAnswerParams.getAid());
             userLikeMapper.insert(userLike1);
-            diff = likeAnswerParams.getLike();
+            diff = likeAnswerParams.getLikes();
         }else{
             //step3
-            Integer like = userLike.getLike();
-            diff = likeAnswerParams.getLike()-like;
-            userLikeMapper.update(userLike,new QueryWrapper<UserLike>().eq("like",likeAnswerParams.getLike()));
+            Integer like = userLike.getLikes();
+            diff = likeAnswerParams.getLikes()-like;
+            userLike.setLikes(likeAnswerParams.getLikes());
+            userLikeMapper.updateById(userLike);
         }
         // step4
         Answer answer = this.getById(likeAnswerParams.getAid());
@@ -86,6 +92,7 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
      * @param bestAnswerParams
      * @param user
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void bestAnswer(BestAnswerParams bestAnswerParams, User user) {
         Answer answer = this.getById(bestAnswerParams.getAid());
@@ -96,7 +103,9 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         if(operation==0){
             if(answer1!=null && answer1.getBest()){
                 answer1.setBest(false);
-                this.save(answer);
+                question.setBest("");
+                this.updateById(answer1);
+                questionService.updateById(question);
             }
             return;
         }
@@ -104,10 +113,19 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
         if(operation==1){
             if(answer1==null || answer1.getBest()==false){
                 answer.setBest(true);
-                this.save(answer);
+                question.setBest(bestAnswerParams.getAid());
+                questionService.updateById(question);
+                this.updateById(answer);
+
             }
             return;
         }
         throw  new CaughtException(ExceptionEnum.INVALID_PARAMS);
+    }
+
+    @Override
+    public List<AnswerVO> getAnswerList(String qid) {
+        List<AnswerVO> list = answerMapper.answerList(qid);
+        return list;
     }
 }

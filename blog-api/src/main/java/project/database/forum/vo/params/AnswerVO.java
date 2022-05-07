@@ -1,11 +1,6 @@
 package project.database.forum.vo.params;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import project.database.forum.dao.pojo.Question;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,16 +10,15 @@ import java.util.Date;
  * @date 5/6/22
  */
 @Data
-public class QuestionVO  {
+public class AnswerVO{
     private String username;
+    private String aid;
     private String qid;
     private String uid;
-    private String tid;
-    private String title;
-    private String body;
-    private Boolean resolved;
+    private String text;
+    private Integer likes;
+    private Boolean best;
     private String datetime;
-    private String best;
     public void setDatetime(Date datetime){
         SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.datetime = sfd.format(datetime);

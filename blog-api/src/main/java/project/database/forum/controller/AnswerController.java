@@ -10,6 +10,7 @@ import project.database.forum.service.struct.AnswerService;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.vo.Result;
 import project.database.forum.vo.params.AddAnswerParams;
+import project.database.forum.vo.params.AnswerVO;
 import project.database.forum.vo.params.BestAnswerParams;
 import project.database.forum.vo.params.LikeAnswerParams;
 
@@ -30,9 +31,7 @@ public class AnswerController {
     private LoginService loginService;
     @GetMapping("list")
     public Result getAnswerList(@RequestParam String qid) {
-        QueryWrapper<Answer> answerQueryWrapper = new QueryWrapper<>();
-        answerQueryWrapper.eq("qid", qid);
-        List<Answer> list = answerService.list(answerQueryWrapper);
+        List<AnswerVO> list = answerService.getAnswerList(qid);
         return Result.success(list);
     }
 
@@ -58,4 +57,10 @@ public class AnswerController {
         answerService.bestAnswer(bestAnswerParams,user);
         return Result.success(true);
     }
+
+    //@GetMapping("user")
+    //public Result gerAnswerListByUid(@RequestHeader("Authorization") String token){
+    //    User user = loginService.findUserByToken(token);
+    //    List<> answerService.gerAnswerListByUid(user.getUid());
+    //}
 }

@@ -9,5 +9,7 @@ import lombok.Data;
 @Data
 public class BestAnswerParams {
     private String aid;
+    // 0 don;t like
+    // 1 like
     private Integer operation;
 }
