@@ -103,6 +103,12 @@ public class LoginServiceImpl implements LoginService {
         }
 
         User user = new User();
+        user.setCity(registerParams.getCity());
+        user.setCountry(registerParams.getCountry());
+        user.setEmail(registerParams.getEmail());
+        user.setProfile(registerParams.getProfile());
+        user.setState(registerParams.getState());
+        user.setStatus(0);
         user.setPassword(DigestUtils.md5Hex(registerParams.getPassword() + salt));
         user.setUsername(registerParams.getUsername());
         UserMapper.insert(user);

@@ -101,7 +101,7 @@ public class AnswerServiceImpl extends ServiceImpl<AnswerMapper, Answer> impleme
     public void bestAnswer(BestAnswerParams bestAnswerParams, User user) {
         Answer answer = this.getById(bestAnswerParams.getAid());
         Question question = questionService.getById(answer.getQid());
-        Answer answer1 = this.getOne(new QueryWrapper<Answer>().eq("best", 1));
+        Answer answer1 = this.getOne(new QueryWrapper<Answer>().eq("best", 1).eq("qid",answer.getQid()));
         Integer operation = bestAnswerParams.getOperation();
         // 取消best answer
         if (operation == 0) {

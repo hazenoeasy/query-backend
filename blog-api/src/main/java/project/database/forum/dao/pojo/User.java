@@ -26,7 +26,7 @@ public class User {
 
     private String city;
 
-    private Integer status;
+    private Integer status = 0;
 
     private String profile;
 

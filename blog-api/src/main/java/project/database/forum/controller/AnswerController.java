@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import project.database.forum.dao.mapper.AnswerMapper;
 import project.database.forum.dao.pojo.Answer;
 import project.database.forum.dao.pojo.User;
+import project.database.forum.handler.exception.CaughtException;
+import project.database.forum.handler.exception.ExceptionEnum;
 import project.database.forum.service.struct.AnswerService;
 import project.database.forum.service.struct.LoginService;
 import project.database.forum.vo.AnswerQuestionVO;
@@ -46,6 +48,9 @@ public class AnswerController {
     @PostMapping("like")
     public Result likeAnswer(@RequestBody LikeAnswerParams likeAnswerParams, @RequestHeader("Authorization") String token) {
         User user = loginService.findUserByToken(token);
+        if(user == null){
+            throw new CaughtException(ExceptionEnum.INVALID_TOKEN);
+        }
         answerService.likeAnswer(likeAnswerParams, user);
         return Result.success(true);
     }

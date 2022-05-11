@@ -15,7 +15,7 @@
         from question Q left join Answer A
         on Q.qid = A.qid
         group by Q.qid, Q.uid, Q.title, Q.body, Q.resolved, Q.datetime, Q.tid
-        order by count desc
+        order by count desc,Q.datetime desc
             limit #{param1}
     </select>
     <!--List<Question> getQuestionList(Page<Question> questions, Long tid);-->
