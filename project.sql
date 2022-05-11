@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 07/05/2022 22:48:44
+ Date: 11/05/2022 04:11:35
 */
 
 SET NAMES utf8mb4;
@@ -40,27 +40,28 @@ CREATE TABLE `Answer` (
 -- Records of Answer
 -- ----------------------------
 BEGIN;
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '1', '1', '...', '-1', 0, '2022-04-12 02:15:06');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1', '1522401282952790018', '1519190160277561346', 'sdfas', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1', '1522401300447232002', '1519190160277561346', 'sdfassadfsa', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1522387864144306177', '1522722017642586113', '1519190160277561346', 'asdf', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '1522776870799486977', '1519190160277561346', 'dfgdfg', '-1', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1522387864144306177', '1522779835627155457', '1519190160277561346', 'sadfads', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1', '1522780143304519682', '1519190160277561346', 'asdasd', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1', '1522780239475752961', '1519190160277561346', 'asdfsafd', '0', 0, NULL);
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '1522780724987387905', '1519190160277561346', 'sdfasdf', '-1', 0, '2022-05-06 23:29:51');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '1522781251959713794', '1519190160277561346', 'asdfasdf', '-1', 0, '2022-05-06 23:31:57');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '1522781496173064193', '1519190160277561346', 'asdfsad', '-1', 0, '2022-05-06 23:32:55');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1520628448974913538', '1522848701212491778', '1519190160277561346', 'sdfasdf', '0', 0, '2022-05-07 03:59:58');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1520628448974913538', '1522850203821854722', '1519190160277561346', 'asdfasdfsdf', '0', 0, '2022-05-07 04:05:58');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1522850349901062146', '1522850369316495361', '1519190160277561346', 'sdfsdfsadf', '1', 0, '2022-05-07 04:06:36');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1522850349901062146', '1522851156948074498', '1519190160277561346', 'asdfsda', '0', 0, '2022-05-07 04:09:44');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1522850349901062146', '1522851368314650626', '1519190160277561346', 'asdfas', '0', 0, '2022-05-07 04:10:34');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '2', '2', '.....', '-1', 0, '2022-04-12 02:15:06');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '3', '4', '....', '2', 0, '2022-04-12 02:15:06');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '4', '3', '......', '-1', 0, '2022-04-12 02:15:06');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('3', '5', '5', 'project!!', '-1', 0, '2022-04-12 17:15:53');
-INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1', '6', '2', 'tewt', '0', 0, '2022-04-12 17:15:53');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295124881727490', '1524295423134490625', '1524295326447394817', 'Newtown', '0', 0, '2022-05-11 03:48:44');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294857255772162', '1524295477740134402', '1524295326447394817', 'They should ban guns', '0', 0, '2022-05-11 03:48:57');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294640548667393', '1524295537932591106', '1524295326447394817', 'for sure', '-1', 0, '2022-05-11 03:49:11');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294490245783553', '1524295606849200130', '1524295326447394817', 'You can DM Professor Juan', '0', 0, '2022-05-11 03:49:27');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294232858124289', '1524295671705722881', '1524295326447394817', 'use docker', '1', 0, '2022-05-11 03:49:43');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295810759483393', '1524295843181453313', '1524295326447394817', 'use Mybatis!', '1', 0, '2022-05-11 03:50:24');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524296220073222145', '1524296551649730561', '1524296415578120193', 'Linus', '1', 0, '2022-05-11 03:53:13');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524296114741665793', '1524296645853798401', '1524296415578120193', 'yes, we can use it with nyu email', '0', 0, '2022-05-11 03:53:35');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295810759483393', '1524296698416816130', '1524296415578120193', 'JDBC is good', '1', 0, '2022-05-11 03:53:48');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294232858124289', '1524296822421413889', '1524296415578120193', 'brew install mongodb', '0', 0, '2022-05-11 03:54:17');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294640548667393', '1524296985437233153', '1524296415578120193', 'no!', '0', 0, '2022-05-11 03:54:56');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294490245783553', '1524297112679833601', '1524296415578120193', 'you can check out HPC website', '0', 0, '2022-05-11 03:55:26');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295124881727490', '1524297149161889794', '1524296415578120193', 'Einstein!', '0', 0, '2022-05-11 03:55:35');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524296220073222145', '1524297494910951426', '1524296415578120193', 'Linus built the first kernel, but it was mantained by public community', '1', 0, '2022-05-11 03:56:58');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524296220073222145', '1524298699871580161', '1524298604832845825', 'ME!', '-1', 0, '2022-05-11 04:01:45');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295810759483393', '1524298785028534274', '1524298604832845825', 'Java sucks! Use Go!', '-1', 0, '2022-05-11 04:02:05');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524295124881727490', '1524298817232400385', '1524298604832845825', 'Me!', '-1', 0, '2022-05-11 04:02:13');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294640548667393', '1524298859959775234', '1524298604832845825', 'I can be fired', '-1', 0, '2022-05-11 04:02:23');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294490245783553', '1524298925864873986', '1524298604832845825', 'I dont know!', '0', 0, '2022-05-11 04:02:39');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294232858124289', '1524298965161308161', '1524298604832845825', 'Google It!', '0', 0, '2022-05-11 04:02:48');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524294857255772162', '1524299005003001857', '1524298604832845825', 'No way', '0', 0, '2022-05-11 04:02:58');
+INSERT INTO `Answer` (`qid`, `aid`, `uid`, `text`, `likes`, `best`, `datetime`) VALUES ('1524296220073222145', '1524300593960574978', '1524298604832845825', 'I wish I could', '0', 0, '2022-05-11 04:09:16');
 COMMIT;
 
 -- ----------------------------
@@ -77,32 +78,27 @@ CREATE TABLE `Question` (
   `tid` varchar(36) DEFAULT NULL,
   `best` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`qid`),
-  KEY `uid` (`uid`),
-  KEY `tid` (`tid`),
-  CONSTRAINT `question_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `User` (`uid`),
-  CONSTRAINT `question_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `Topic` (`tid`)
+  KEY `question_ibfk_1` (`uid`),
+  KEY `question_ibfk_2` (`tid`),
+  CONSTRAINT `question_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `User` (`uid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `question_ibfk_2` FOREIGN KEY (`tid`) REFERENCES `Topic` (`tid`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of Question
 -- ----------------------------
 BEGIN;
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1', '1', 'final project?', 'how to write project proposal?', 0, '2022-04-12 01:35:27', '5', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1520628448974913538', '1519190160277561346', 'ahahah', 'fdsd', 0, '2022-05-01 00:57:29', '1', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522387085819895810', '1519190160277561346', 'asdf', 'asdfsadf', 0, '2022-05-05 21:25:41', '2', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522387864144306177', '1519190160277561346', 'asdf', 'sadfasdf', 0, '2022-05-05 21:28:46', '1521935134246236162', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522387939578863617', '1519190160277561346', 'sadfsad', 'sdfsadfsadf', 0, '2022-05-05 21:29:04', '1521935134246236162', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522718431734984705', '1519190160277561346', 'sdfsad', 'asdfas', 1, '2022-05-06 19:22:20', '1521951009791709185', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522780562856591361', '1519190160277561346', 'zCXzx', 'ZXCzXC', 0, '2022-05-06 23:29:45', '1', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1522850349901062146', '1519190160277561346', 'dsfs', 'sadfsadfasd', 0, '2022-05-07 04:06:31', '2', '');
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('2', '2', 'final project', 'I have no idea', 0, '2022-04-12 01:37:15', '5', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('3', '3', 'final project3', 'project', 0, '2022-04-12 01:38:55', '5', '');
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('4', '4', 'final', 'project', 0, '2022-04-12 01:38:55', '5', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('5', '5', 'final', 'I have no idea', 0, '2022-04-12 01:38:55', '5', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('6', '6', 'final project3', '', 0, '2022-04-12 01:38:55', '5', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('7', '1', 'how to write function in mysql?', '', 0, '2022-04-12 01:38:55', '8', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('8', '1', 'group project', 'does any one wanna do a group project with me?', 0, '2022-04-12 17:14:49', '1', NULL);
-INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('9', '2', 'Tutor', 'sfds', 0, '2022-04-12 17:15:24', '1', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524294232858124289', '1524293886710603777', 'Does any one know how to install mongoDB?', 'I have a assignment about MongoDB. But I don\'t know how to install it on M1 Mac', 0, '2022-05-11 03:44:00', '10', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524294490245783553', '1524293886710603777', 'Does any one know how to run Hapdoop on HPC?', 'Homework 1', 0, '2022-05-11 03:45:01', '12', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524294640548667393', '1524293886710603777', 'Can water be fired?', 'can?', 0, '2022-05-11 03:45:37', '2', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524294857255772162', '1524293886710603777', 'How can the NYC protect citizen?', '.', 0, '2022-05-11 03:46:29', '3', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524295124881727490', '1524293886710603777', 'Newton or Einstein who is greater？', 'Newton or Einstein who is greater？', 0, '2022-05-11 03:47:32', '4', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524295810759483393', '1524295326447394817', 'How to connect Mysql with Java?', 'I am working on my final project', 0, '2022-05-11 03:50:16', '8', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524296114741665793', '1524295326447394817', 'Can NYU student use oracle for free?', 'The licence is so expensive', 0, '2022-05-11 03:51:28', '9', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524296220073222145', '1524295326447394817', 'Who built Linux?', 'who?', 0, '2022-05-11 03:51:54', '14', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524299199773896706', '1524298604832845825', 'Can Spark predict if I can win LoL S12 champion ?', 'I\'m mid lane player in G2', 0, '2022-05-11 04:03:44', '13', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524299362512891905', '1524298604832845825', 'Can javascript write a OS?', '?', 0, '2022-05-11 04:04:23', '14', NULL);
+INSERT INTO `Question` (`qid`, `uid`, `title`, `body`, `resolved`, `datetime`, `tid`, `best`) VALUES ('1524300832348037122', '1524298604832845825', 'What is the career road a chemsitry student?', 'This is my first year', 0, '2022-05-11 04:10:13', '2', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -126,11 +122,9 @@ BEGIN;
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1', '1', 'Computer Science', 'This is Computer Science');
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('10', '5', 'Mongodb', 'This is Mongodb');
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('11', '3', 'NYC Citizen', 'This is NYC Citizen');
-INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1521935134246236162', '1', 'str', 'str');
-INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1521935823936614401', '1', 'sdf', 'sdf');
-INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1521936081487851521', '1', 'sdfsdfsdf', 'sdfsdfsdf');
-INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1521936277949100033', '1', 'sdfsdfsdfsadf', '234asdfsa');
-INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('1521951009791709185', '1521935823936614401', 'testss', 'testtest');
+INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('12', '6', 'Hadoop', 'This is Hadoop');
+INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('13', '6', 'Spark', 'This is Spark');
+INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('14', '7', 'Linux', 'This is Linux');
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('2', '2', 'Chemistry', 'This is Chemistry');
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('3', '3', 'Civil', 'This is Civil');
 INSERT INTO `Topic` (`tid`, `parentId`, `topic_name`, `text`) VALUES ('4', '4', 'Physics', 'This is Physics');
@@ -163,12 +157,18 @@ CREATE TABLE `User` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1', 'Matt', 'This is Matt', 1, 'yz7726@nyu.edu', 'xxx', 'New York City', 'New York', 'United State');
-INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1519190160277561346', 'yuhao', 'asdfsadf', -2, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1519190160277561346', 'yuhao', 'asdfsadf', 13, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1522227772476289026', 'yu', NULL, NULL, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1522235730032603137', 'yuhao1', NULL, NULL, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1522717213348392962', 'yu334', NULL, NULL, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1522717287939895297', 'zhangyuhao', NULL, NULL, NULL, '85af49baa49feb3f213c2ae9a937d568', NULL, NULL, NULL);
-INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('2', 'Kobe', 'This is Kobe', -2, 'Kobe@nyu.edu', 'xxx', 'LA', 'CA', 'United State');
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524278765317664770', 'MattZ', NULL, NULL, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524293886710603777', 'yz7726', NULL, 0, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524295326447394817', 'Jenson', NULL, 0, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524296415578120193', 'Michael', NULL, 0, NULL, '80ac45e5bdfe767ebc03c0214dbba7b7', NULL, NULL, NULL);
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524298604832845825', 'Caps', 'This is Caps', -4, 'ZYHzyh1217@qq.com', '80ac45e5bdfe767ebc03c0214dbba7b7', 'NYC', 'New York', 'US');
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('1524299686812282881', 'Rookie', 'This is Rookie', 0, 'Rookie@qq.com', '80ac45e5bdfe767ebc03c0214dbba7b7', 'Shanghai', 'Shanghai', 'China');
+INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('2', 'Kobe', 'This is Kobe', -1, 'Kobe@nyu.edu', 'xxx', 'LA', 'CA', 'United State');
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('3', 'Jordan', 'This is Jordan', -1, 'Jordan@nyu.edu', 'xxx', 'Miami', ' Florida', 'United State');
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('4', 'Tom', 'This is Tom', 2, 'Tom@nyu.edu', 'xxx', 'New York City', 'New York', 'United State');
 INSERT INTO `User` (`uid`, `username`, `profile`, `status`, `email`, `password`, `city`, `state`, `country`) VALUES ('5', 'Curry', 'This is Curry', -1, 'Curry@nyu.edu', 'xxx', 'San Francisco', 'CA', 'United State');
@@ -190,16 +190,16 @@ CREATE TABLE `UserLike` (
 -- Records of UserLike
 -- ----------------------------
 BEGIN;
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('3', '1519190160277561346', -1, '1522775710617227265');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('5', '1519190160277561346', -1, '1522776572622221314');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('4', '1519190160277561346', -1, '1522776582202011649');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1', '1519190160277561346', -1, '1522776597611884546');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1522776870799486977', '1519190160277561346', -1, '1522776882811973633');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1522781496173064193', '1519190160277561346', -1, '1522847389599105026');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1522781251959713794', '1519190160277561346', -1, '1522847397979324418');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1522780724987387905', '1519190160277561346', -1, '1522847400378466305');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1522850369316495361', '1519190160277561346', 1, '1522850377637994498');
-INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('6', '1519190160277561346', -1, '1523073524551327745');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524295843181453313', '1524296415578120193', 1, '1524296666519134209');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524296698416816130', '1524296415578120193', 1, '1524296710689349633');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524295671705722881', '1524296415578120193', 1, '1524296753492221953');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524295537932591106', '1524296415578120193', -1, '1524296990793359361');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524296551649730561', '1524296415578120193', 1, '1524297329856700417');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524297494910951426', '1524296415578120193', 1, '1524297502267760641');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524298699871580161', '1524298604832845825', -1, '1524298706582466561');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524298785028534274', '1524298604832845825', -1, '1524298791621980161');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524298817232400385', '1524298604832845825', -1, '1524298825029611522');
+INSERT INTO `UserLike` (`aid`, `uid`, `likes`, `rid`) VALUES ('1524298859959775234', '1524298604832845825', -1, '1524298868608430081');
 COMMIT;
 
 -- ----------------------------
